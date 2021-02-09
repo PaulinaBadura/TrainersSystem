@@ -216,4 +216,8 @@ namespace TrainersClasses
 			}
 		}
 	}
+
+    public class clsCustomer
+    {
+    }
 }
