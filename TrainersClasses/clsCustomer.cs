@@ -5,7 +5,7 @@ namespace TrainersClasses
     public class clsCustomer
     {
         //private data members for all theproperties
-        private Int32 mCustomerNo;
+        private Int32 mCustomerID;
         private string mFirstName;
         private string mLastName;
         private string mEmail;
@@ -127,36 +127,52 @@ namespace TrainersClasses
                 mTown = value;
             }
         }
-        public int CustomerNo {
+        public int CustomerID {
             get
             {
                 //tis line of code sends data out of the property
-                return mCustomerNo;
+                return mCustomerID;
             }
             set
             {
                 //this line of code allows data into property
-                mCustomerNo = value;
+                mCustomerID = value;
             }
         }
 
 
 
-        public bool Find(int customerNo)
+        public bool Find(int CustomerID)
         {
-            //set the private data members to the test data value
-            mCustomerNo = 12;
-            mFirstName = "John";
-            mLastName = "Wick";
-            mEmail = "JohnWick@gmail.com";
-            mPassword = "John123";
-            mDateOfBirth = Convert.ToDateTime("22/02/1990");
-            mHouseNo = "123B";
-            mStreet = "Some Street";
-            mPostCode = "LE1 7LT";
-            mTown = "Leicester";
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the customer to search for
+            DB.AddParameter("@CustomerID", CustomerID);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblCustomer_FilterByCustomerID");
+            //if one record is found ( there should be either one or zero)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to private data member
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]); 
+                mPassword = Convert.ToString(DB.DataTable.Rows[0]["Password"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                mHouseNo = Convert.ToString(DB.DataTable.Rows[0]["HouseNo"]);
+                mStreet = Convert.ToString(DB.DataTable.Rows[0]["Street"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mTown = Convert.ToString(DB.DataTable.Rows[0]["Town"]);
+                //return that everything worked 
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem 
+                return false;
+            }
         }
     }
 }
