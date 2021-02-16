@@ -16,10 +16,12 @@ namespace TrainersClasses
         {
             get
             {
+                //send data out of the property
                 return mInStock;
             }
             set
             {
+                //send data into the property
                 mInStock = value;
             }
         }
@@ -53,10 +55,12 @@ namespace TrainersClasses
         {
             get
             {
+                //send data out of the property
                 return mPrice;
             }
             set
             {
+                //send data into the property
                 mPrice = value;
             }
         }
@@ -116,17 +120,35 @@ namespace TrainersClasses
 
         public bool Find(int TrainerID)
         {
-            //set the private data members to the test data value
-            mTrainerID = 12;
-            mDateAdded = Convert.ToDateTime("16/02/2021");
-            mBrand = "Test Brand";
-            mName = "Test Name";
-            mColour = "Test Colour";
-            mSize = 2;
-            mPrice = 2;
-            mInStock = true;
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the trainer id to search for
+            DB.AddParameter("@TrainerID", TrainerID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblTrainers_FilterByTrainerID");
+            //if one record is found
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mTrainerID = Convert.ToInt32(DB.DataTable.Rows[0]["TrainerID"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mBrand = Convert.ToString(DB.DataTable.Rows[0]["Brand"]);
+                mName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
+                mColour = Convert.ToString(DB.DataTable.Rows[0]["Colour"]);
+                mSize = Convert.ToInt32(DB.DataTable.Rows[0]["Size"]);
+                mPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
+                mInStock = Convert.ToBoolean(DB.DataTable.Rows[0]["InStock"]);
+                //return that everything worked fine
+                return true;
+            }
+            //if no record found
+            else
+            {
+                //return false indicatiing a problem
+                return false;
+            }
+            
+           
         }
 
        
