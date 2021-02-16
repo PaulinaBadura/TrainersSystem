@@ -122,7 +122,7 @@ namespace Trainers_Testing
             //test data to store the result of the search
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 TrainerID = 12;
+            Int32 TrainerID = 2;
             //invoke the method
             Found = ATrainer.Find(TrainerID);
             Assert.IsTrue(Found);
@@ -137,11 +137,11 @@ namespace Trainers_Testing
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 TrainerID = 12;
+            Int32 TrainerID = 2;
             //invoke the method
             Found = ATrainer.Find(TrainerID);
             //check the trainer ID
-            if(ATrainer.TrainerID != 12)
+            if(ATrainer.TrainerID != 2)
             {
                 OK = false;
             }
@@ -158,11 +158,11 @@ namespace Trainers_Testing
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 TrainerID = 12;
+            Int32 TrainerID = 2;
             //invoke the method
             Found = ATrainer.Find(TrainerID);
             //check the property
-            if (ATrainer.DateAdded !=  Convert.ToDateTime("16/02/2021"))
+            if (ATrainer.DateAdded !=  Convert.ToDateTime("15/01/2021"))
             {
                 OK = false;
             }
@@ -179,11 +179,11 @@ namespace Trainers_Testing
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 TrainerID = 12;
+            Int32 TrainerID = 2;
             //invoke the method
             Found = ATrainer.Find(TrainerID);
             //check the property
-            if (ATrainer.Brand != "Test Brand")
+            if (ATrainer.Brand != "Adidas")
             {
                 OK = false;
             }
@@ -200,11 +200,11 @@ namespace Trainers_Testing
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 TrainerID = 12;
+            Int32 TrainerID = 2;
             //invoke the method
             Found = ATrainer.Find(TrainerID);
             //check the property
-            if (ATrainer.Name != "Test Name")
+            if (ATrainer.Name != "Originals")
             {
                 OK = false;
             }
@@ -221,11 +221,11 @@ namespace Trainers_Testing
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 TrainerID = 12;
+            Int32 TrainerID = 2;
             //invoke the method
             Found = ATrainer.Find(TrainerID);
             //check the property
-            if (ATrainer.Colour != "Test Colour")
+            if (ATrainer.Colour != "White")
             {
                 OK = false;
             }
@@ -242,11 +242,11 @@ namespace Trainers_Testing
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 TrainerID = 12;
+            Int32 TrainerID = 2;
             //invoke the method
             Found = ATrainer.Find(TrainerID);
             //check the property
-            if (ATrainer.Size != 2)
+            if (ATrainer.Size != 6)
             {
                 OK = false;
             }
@@ -263,11 +263,11 @@ namespace Trainers_Testing
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 TrainerID = 12;
+            Int32 TrainerID = 2;
             //invoke the method
             Found = ATrainer.Find(TrainerID);
             //check the property
-            if (ATrainer.Price != 2)
+            if (ATrainer.Price != Convert.ToDecimal(50.00))
             {
                 OK = false;
             }
@@ -284,7 +284,7 @@ namespace Trainers_Testing
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 TrainerID = 12;
+            Int32 TrainerID = 2;
             //invoke the method
             Found = ATrainer.Find(TrainerID);
             //check the property
