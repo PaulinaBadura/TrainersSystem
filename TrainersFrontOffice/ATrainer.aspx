@@ -28,6 +28,9 @@
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 459px; top: 470px; position: absolute"></asp:Label>
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 458px; top: 515px; position: absolute" Text="OK" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 529px; top: 515px; position: absolute" Text="Cancel" />
+        <asp:TextBox ID="txtTrainerID" runat="server" style="z-index: 1; left: 463px; top: 121px; position: absolute"></asp:TextBox>
+        <asp:Label ID="lblTrainerID" runat="server" style="z-index: 1; left: 367px; top: 119px; position: absolute" Text="Trainer ID"></asp:Label>
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 627px; top: 118px; position: absolute" Text="Find" />
     </form>
 </body>
 </html>
