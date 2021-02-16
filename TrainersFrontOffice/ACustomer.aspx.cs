@@ -34,4 +34,41 @@ public partial class ACustomer : System.Web.UI.Page
 		//redirect to the viewer page
 		Response.Redirect("CustomerViewer.aspx");
 	}
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create an instance of the customer class
+        clsCustomer ACustomer = new clsCustomer();
+        //variable to store the primary key 
+        Int32 CustomerID;
+        //variable to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        CustomerID = Convert.ToInt32(txtCustomerID.Text);
+        //find the record
+        Found = ACustomer.Find(CustomerID);
+        //if found
+        if (Found == true)
+        {
+            //display the values of the properties in the form
+            txtFirstName.Text = ACustomer.FirstName;
+            txtLAstName.Text = ACustomer.LastName;
+            txtEmail.Text = ACustomer.Email;
+            txtPassword.Text = ACustomer.Password;
+            txtDateOfBirth.Text = ACustomer.DateOfBirth.ToString();
+            txtHouseNo.Text = ACustomer.HouseNo;
+            txtStreet.Text = ACustomer.Street;
+            txtTown.Text = ACustomer.Town;
+            txtPostCode.Text = ACustomer.PostCode;
+        }
+        else
+        {
+            lblError.Text = "Customer not found";
+        }
+    }
 }
