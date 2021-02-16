@@ -17,16 +17,16 @@ namespace Trainers_Testing
         }
 
         [TestMethod]
-        public void CustomerNoPropertyOK()
+        public void CustomerIDPropertyOK()
         {
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create som test data to assign to the property 
             Int32 TestData = 12;
             //assign the data to the property
-            ACustomer.CustomerNo = TestData;
+            ACustomer.CustomerID = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(ACustomer.CustomerNo, TestData);
+            Assert.AreEqual(ACustomer.CustomerID, TestData);
         }
 
         [TestMethod]
@@ -158,15 +158,15 @@ namespace Trainers_Testing
             //Bollean variable to store the reult of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 CustomerNo = 12;
+            Int32 CustomerID = 4;
             //invoe the method
-            Found = ACustomer.Find(CustomerNo);
+            Found = ACustomer.Find(CustomerID);
             //test to see if the result is true
             Assert.IsTrue(Found);
         }
 
         [TestMethod]
-        public void TestCustomerNoFound()
+        public void TestCustomerIDFound()
         {
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
@@ -175,11 +175,11 @@ namespace Trainers_Testing
             //Bolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 12;
+            Int32 CustomerID = 4;
             //invoe the method
-            Found = ACustomer.Find(CustomerNo);
+            Found = ACustomer.Find(CustomerID);
             //check the customer no
-            if(ACustomer.CustomerNo !=12)
+            if(ACustomer.CustomerID !=4)
             {
                 OK = false;
             }
@@ -197,9 +197,9 @@ namespace Trainers_Testing
             //Bolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 12;
+            Int32 CustomerID = 4;
             //invoe the method
-            Found = ACustomer.Find(CustomerNo);
+            Found = ACustomer.Find(CustomerID);
             //check the customer no
             if (ACustomer.FirstName != "John")
             {
@@ -219,9 +219,9 @@ namespace Trainers_Testing
             //Bolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 12;
+            Int32 CustomerID = 4;
             //invoe the method
-            Found = ACustomer.Find(CustomerNo);
+            Found = ACustomer.Find(CustomerID);
             //check the customer no
             if (ACustomer.LastName != "Wick")
             {
@@ -241,9 +241,9 @@ namespace Trainers_Testing
             //Bolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 12;
+            Int32 CustomerID = 4;
             //invoe the method
-            Found = ACustomer.Find(CustomerNo);
+            Found = ACustomer.Find(CustomerID);
             //check the customer no
             if (ACustomer.Email != "JohnWick@gmail.com")
             {
@@ -263,9 +263,9 @@ namespace Trainers_Testing
             //Bolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 12;
+            Int32 CustomerID = 4;
             //invoe the method
-            Found = ACustomer.Find(CustomerNo);
+            Found = ACustomer.Find(CustomerID);
             //check the customer no
             if (ACustomer.Password != "John123")
             {
@@ -285,9 +285,9 @@ namespace Trainers_Testing
             //Bolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 12;
+            Int32 CustomerID = 4;
             //invoe the method
-            Found = ACustomer.Find(CustomerNo);
+            Found = ACustomer.Find(CustomerID);
             //check the customer no
             if (ACustomer.DateOfBirth != Convert.ToDateTime("22/02/1990"))
             {
@@ -307,9 +307,9 @@ namespace Trainers_Testing
             //Bolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 12;
+            Int32 CustomerID = 4;
             //invoe the method
-            Found = ACustomer.Find(CustomerNo);
+            Found = ACustomer.Find(CustomerID);
             //check the customer no
             if (ACustomer.HouseNo != "123B")
             {
@@ -329,9 +329,9 @@ namespace Trainers_Testing
             //Bolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 12;
+            Int32 CustomerID = 4;
             //invoe the method
-            Found = ACustomer.Find(CustomerNo);
+            Found = ACustomer.Find(CustomerID);
             //check the customer no
             if (ACustomer.Street != "Some Street")
             {
@@ -351,9 +351,9 @@ namespace Trainers_Testing
             //Bolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 12;
+            Int32 CustomerID = 4;
             //invoe the method
-            Found = ACustomer.Find(CustomerNo);
+            Found = ACustomer.Find(CustomerID);
             //check the customer no
             if (ACustomer.PostCode != "LE1 7LT")
             {
@@ -373,9 +373,9 @@ namespace Trainers_Testing
             //Bolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 12;
+            Int32 CustomerID = 4;
             //invoe the method
-            Found = ACustomer.Find(CustomerNo);
+            Found = ACustomer.Find(CustomerID);
             //check the customer no
             if (ACustomer.Town != "Leicester")
             {
