@@ -29,8 +29,13 @@
 		<asp:Label ID="lblStreet" runat="server" style="z-index: 1; left: 250px; top: 550px; position: absolute" Text="Street"></asp:Label>
 		<asp:Label ID="lblTown" runat="server" style="z-index: 1; left: 250px; top: 600px; position: absolute" Text="Town"></asp:Label>
 		<asp:Label ID="lblPostCode" runat="server" style="z-index: 1; left: 250px; top: 650px; position: absolute" Text="PostCode"></asp:Label>
-		<asp:Label ID="lblError" runat="server" style="z-index: 1; left: 250px; top: 720px; position: absolute; right: 2107px;"></asp:Label>
+		<asp:Label ID="lblError" runat="server" style="z-index: 1; left: 250px; top: 720px; position: absolute; right: 520px;"></asp:Label>
     	<asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 427px; top: 750px; position: absolute; width: 115px;" Text="Cancel" />
+        <p>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 680px; top: 200px; position: absolute" Text="Find" />
+            <asp:Label ID="lblCustomerID" runat="server" style="z-index: 1; left: 250px; top: 200px; position: absolute" Text="CustomerID"></asp:Label>
+            <asp:TextBox ID="txtCustomerID" runat="server" style="z-index: 1; left: 458px; top: 200px; position: absolute; right: 680px;"></asp:TextBox>
+        </p>
     </form>
 </body>
 </html>
