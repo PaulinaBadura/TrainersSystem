@@ -18,7 +18,8 @@ namespace TrainersClasses
 
 
         //public data members
-        public string FirstName {
+        public string FirstName
+        {
             get
             {
                 //tis line of code sends data out of the property
@@ -30,7 +31,8 @@ namespace TrainersClasses
                 mFirstName = value;
             }
         }
-        public string LastName {
+        public string LastName
+        {
             get
             {
                 //tis line of code sends data out of the property
@@ -42,7 +44,8 @@ namespace TrainersClasses
                 mLastName = value;
             }
         }
-        public string Email {
+        public string Email
+        {
             get
             {
                 //tis line of code sends data out of the property
@@ -54,7 +57,8 @@ namespace TrainersClasses
                 mEmail = value;
             }
         }
-        public string Password {
+        public string Password
+        {
             get
             {
                 //tis line of code sends data out of the property
@@ -66,7 +70,8 @@ namespace TrainersClasses
                 mPassword = value;
             }
         }
-        public DateTime DateOfBirth {
+        public DateTime DateOfBirth
+        {
             get
             {
                 //tis line of code sends data out of the property
@@ -78,7 +83,8 @@ namespace TrainersClasses
                 mDateOfBirth = value;
             }
         }
-        public string HouseNo {
+        public string HouseNo
+        {
             get
             {
                 //tis line of code sends data out of the property
@@ -90,7 +96,8 @@ namespace TrainersClasses
                 mHouseNo = value;
             }
         }
-        public string Street {
+        public string Street
+        {
             get
             {
                 //tis line of code sends data out of the property
@@ -102,7 +109,8 @@ namespace TrainersClasses
                 mStreet = value;
             }
         }
-        public string PostCode {
+        public string PostCode
+        {
             get
             {
                 //tis line of code sends data out of the property
@@ -112,10 +120,11 @@ namespace TrainersClasses
             {
                 //this line of code allows data into property
                 mPostCode = value;
-            
+
             }
         }
-        public string Town {
+        public string Town
+        {
             get
             {
                 //tis line of code sends data out of the property
@@ -127,7 +136,8 @@ namespace TrainersClasses
                 mTown = value;
             }
         }
-        public int CustomerID {
+        public int CustomerID
+        {
             get
             {
                 //tis line of code sends data out of the property
@@ -157,7 +167,7 @@ namespace TrainersClasses
                 mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
                 mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
                 mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
-                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]); 
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
                 mPassword = Convert.ToString(DB.DataTable.Rows[0]["Password"]);
                 mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
                 mHouseNo = Convert.ToString(DB.DataTable.Rows[0]["HouseNo"]);
@@ -173,6 +183,120 @@ namespace TrainersClasses
                 //return false indicating a problem 
                 return false;
             }
+        }
+
+        public string Valid(string firstName, string lastName, string dateOfBirth, string email, string password, string houseNo, string street, string town, string postCode)
+        {
+            //create the string variable to store the error
+            String Error = "";
+            DateTime DateTemp;
+            //if the FirstName is blank
+            if (firstName.Length == 0)
+            {
+                Error = Error + "First name may not be blank : ";
+            }
+            //if the First name is grater than 50
+            if (firstName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The first name must be less than 50 characters : ";
+            }
+            //if the last name is blank
+            if (lastName.Length == 0)
+            {
+                Error = Error + "Last name may not be blank : ";
+            }
+            //if the last name is grater than 50 characters
+            if (lastName.Length > 50)
+            {
+                //record an error 
+                Error = Error + "The last name must be less than 50 characters : ";
+            }
+            try
+            {
+                //copy the dateOfBirth value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateOfBirth);
+                if (DateTemp > DateTime.Now.AddYears(-16))
+                {
+                    Error = Error + "You are too young, you must be at least 16 years old";
+                }
+                //if somebody is 121  or  more years old
+                if (DateTemp <= DateTime.Now.AddYears(-121))
+                {
+                    //record an error 
+                    Error = Error + "You are too old : ";
+                }
+            }
+            catch
+            {
+                //record the error 
+                Error = Error + "The date of birth was not valid date : ";
+            }
+            //if Password is less than 7
+            if (password.Length < 8)
+            {
+                //record an error
+                Error = Error + "Password must be at least 8 characters long : ";
+            }
+            //if Password is more than 16 characters
+            if (password.Length > 16)
+            {
+                //record an error
+                Error = Error + "Password cannot be more than 16 characters : ";
+            }
+            //if Email is blank
+            if (email.Length == 0 )
+            {
+                //record an error
+                Error = Error + "Email may not be blank : ";
+            }
+            //if house no is blank
+            if (houseNo.Length == 0)
+            {
+                //record an error
+                Error = Error + "House number may not be blank : ";
+            }
+            //if HouseNo is more than 6 characters
+            if ( houseNo.Length > 6)
+            {
+                //record an error
+                Error = Error + "House number must be less than 6 characters : ";
+            }
+            //if the street is blank
+            if (street.Length == 0)
+            {
+                Error = Error + "Street may not be blank : ";
+            }
+            //if the street is grater than 50 characters
+            if (street.Length > 50)
+            {
+                //record an error 
+                Error = Error + "The street must be less than 50 characters : ";
+            }
+            //if the town is blank
+            if (town.Length == 0)
+            {
+                Error = Error + "Town may not be blank : ";
+            }
+            //if the town is grater than 60 characters
+            if (town.Length > 60)
+            {
+                //record an error 
+                Error = Error + "The town must be less than 60 characters : ";
+            }
+            //if the post code is blank
+            if (postCode.Length == 0)
+            {
+                Error = Error + "Post Code may not be blank : ";
+            }
+            //if the town is grater than 8 characters
+            if (postCode.Length > 8)
+            {
+                //record an error 
+                Error = Error + "The post code must be less than 8 characters : ";
+            }
+            //return any error messages 
+            return Error;
         }
     }
 }
