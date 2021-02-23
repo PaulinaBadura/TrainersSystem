@@ -7,6 +7,15 @@ namespace Trainers_Testing
     [TestClass]
     public class tstTrainers
     {
+        //good test data
+        //create some test data to pass the method
+        string Brand = "Adidas";
+        string Name = "Originals";
+        string Colour = "White";
+        string Size = "2";
+        string Price = "9.89";
+        string DateAdded = DateTime.Now.Date.ToString();
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -294,6 +303,447 @@ namespace Trainers_Testing
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
+        }
+       [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void BrandMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Brand = ""; //this should trigger an error
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void BrandMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Brand = "aa"; //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void BrandMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Brand = "";
+            Brand = Brand.PadRight(49, 'N'); //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void BrandMax()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Brand = "";
+            Brand = Brand.PadRight(50, 'N'); //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void BrandMid()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Brand = "";
+            Brand = Brand.PadRight(25, 'N'); //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void BrandMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Brand = "";
+            Brand = Brand.PadRight(51, 'N'); //this should fail
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void BrandMaxExtreme()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Brand = "";
+            Brand = Brand.PadRight(100, 'N'); //this should fail
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestData;
+            //set the date to todays date
+            TestData = DateTime.Now.Date;
+            //change the date to whatever the date is - 100 years
+            TestData = TestData.AddYears(-100);
+            //convert the date variable to a string variable 
+            string DateAdded = TestData.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestData;
+            //set the date to todays date
+            TestData = DateTime.Now.Date;
+            //change the date to whatever the date is - 1 day
+            TestData = TestData.AddDays(-1);
+            //convert the date variable to a string variable 
+            string DateAdded = TestData.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestData;
+            //set the date to todays date
+            TestData = DateTime.Now.Date;
+            //convert the date variable to a string variable 
+            string DateAdded = TestData.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestData;
+            //set the date to todays date
+            TestData = DateTime.Now.Date;
+            //change the date to whatever the date is + 1 day
+            TestData = TestData.AddDays(1);
+            //convert the date variable to a string variable 
+            string DateAdded = TestData.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestData;
+            //set the date to todays date
+            TestData = DateTime.Now.Date;
+            //change the date to whatever the date is + 100 years
+            TestData = TestData.AddYears(100);
+            //convert the date variable to a string variable 
+            string DateAdded = TestData.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAddedInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = ""; 
+            //set the dateAdded to a non date value
+            string DateAdded = "This is not a date";
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        //////////
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        [TestMethod]
+        public void NameMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Name = ""; //this should trigger an error
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void NameMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Name = "aa"; //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void NameMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Name = "";
+            Name = Name.PadRight(49, 'N'); //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void NameMax()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Name = "";
+            Name = Name.PadRight(50, 'N'); //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void NameMid()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Name = "";
+            Name = Name.PadRight(25, 'N'); //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void NameMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Name = "";
+            Name = Name.PadRight(51, 'N'); //this should fail
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void NameMaxExtreme()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Name = "";
+            Name = Name.PadRight(100, 'N'); //this should fail
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ColourMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Colour = ""; //this should trigger an error
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ColourMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Colour = "aa"; //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ColourMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Colour = "";
+            Colour = Colour.PadRight(49, 'N'); //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ColourMax()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Colour = "";
+            Colour = Colour.PadRight(50, 'N'); //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ColourMid()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Colour = "";
+            Colour = Colour.PadRight(25, 'N'); //this should be okay
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ColourMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Colour = "";
+            Colour = Colour.PadRight(51, 'N'); //this should fail
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ColourMaxExtreme()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Colour = "";
+            Colour = Colour.PadRight(100, 'N'); //this should fail
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
         }
     }
 }
