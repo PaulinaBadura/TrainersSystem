@@ -151,6 +151,69 @@ namespace TrainersClasses
            
         }
 
-       
+        public string Valid(string brand, string name, string colour, string size, string price, string dateAdded)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+            //if the brand is blank
+            if (brand.Length == 0)
+            {
+                //record the error 
+                Error = Error + "The brand may not be blank : ";
+            }
+            //if the brand is greater than 50 characters
+            if (brand.Length > 50)
+            {
+                //record the error
+                Error = Error + "The brand must not be more than 50 characters : ";
+            }
+            if (name.Length == 0)
+            {
+                //record the error 
+                Error = Error + "The name may not be blank : ";
+            }
+            //if the brand is greater than 50 characters
+            if (name.Length > 50)
+            {
+                //record the error
+                Error = Error + "The name must not be more than 50 characters : ";
+            }
+            if (colour.Length == 0)
+            {
+                //record the error 
+                Error = Error + "The colour may not be blank : ";
+            }
+            //if the brand is greater than 50 characters
+            if (colour.Length > 50)
+            {
+                //record the error
+                Error = Error + "The colour must not be more than 50 characters : ";
+            }
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable 
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date entered is not a valid date : ";
+            }
+            //return any error message
+            return Error;
+        }
     }
 }
