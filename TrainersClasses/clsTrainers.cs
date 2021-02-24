@@ -146,9 +146,7 @@ namespace TrainersClasses
             {
                 //return false indicatiing a problem
                 return false;
-            }
-            
-           
+            } 
         }
 
         public string Valid(string brand, string name, string colour, string size, string price, string dateAdded)
@@ -157,6 +155,8 @@ namespace TrainersClasses
             String Error = "";
             //create a temporary variable to store date values
             DateTime DateTemp;
+            //temporary variable to store size values
+            Int32 SizeTemp;
             //if the brand is blank
             if (brand.Length == 0)
             {
@@ -212,6 +212,26 @@ namespace TrainersClasses
                 //record the error
                 Error = Error + "The date entered is not a valid date : ";
             }
+            try
+            {
+                SizeTemp = Convert.ToInt32(size);
+                if (SizeTemp == 0)
+                {
+                    //record the error
+                    Error = Error + "The size cannot be blank : ";
+                }
+                if (SizeTemp > 12)
+                {
+                    //record the error
+                    Error = Error + "The size cannot be greater than 12 : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The value entered is not a number : ";
+            } 
+            
             //return any error message
             return Error;
         }

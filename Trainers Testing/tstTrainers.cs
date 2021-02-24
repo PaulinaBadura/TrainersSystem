@@ -7,8 +7,7 @@ namespace Trainers_Testing
     [TestClass]
     public class tstTrainers
     {
-        //good test data
-        //create some test data to pass the method
+        //good test data to pass the method
         string Brand = "Adidas";
         string Name = "Originals";
         string Colour = "White";
@@ -745,5 +744,132 @@ namespace Trainers_Testing
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
+        [TestMethod]
+        public void SizeMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Int32 TestSize = 0; //this should trigger an error
+            //convert the size variable to a string variable
+            string Size = TestSize.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void SizeMin()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Int32 TestSize = 1; //this should pass
+            //convert the size variable to a string variable
+            string Size = TestSize.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void SizeMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Int32 TestSize = 2; //this should pass
+            //convert the size variable to a string variable
+            string Size = TestSize.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void SizeMid()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Int32 TestSize = 6; //this should pass
+            //convert the size variable to a string variable
+            string Size = TestSize.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void SizeMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Int32 TestSize = 11; //this should pass
+            //convert the size variable to a string variable
+            string Size = TestSize.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void SizeMax()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Int32 TestSize = 12; //this should pass
+            //convert the size variable to a string variable
+            string Size = TestSize.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void SizeMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Int32 TestSize = 13; //this should pass
+            //convert the size variable to a string variable
+            string Size = TestSize.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void SizeInvalidData()
+        {
+            //create instance of the class
+            clsTrainers ATrainer = new clsTrainers();
+            //string to store error message
+            String Error = "";
+            //set the date added to non date value
+            String Size = "Value entered is not a number!";
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        
     }
 }
