@@ -216,12 +216,14 @@ namespace TrainersClasses
             {
                 //copy the dateOfBirth value to the DateTemp variable
                 DateTemp = Convert.ToDateTime(dateOfBirth);
-                if (DateTemp > DateTime.Now.AddYears(-16))
+            
+
+                if (DateTemp > DateTime.Now.Date.AddYears(-16))
                 {
-                    Error = Error + "You are too young, you must be at least 16 years old";
+                    Error = Error + "You are too young, you must be at least 16 years old ;";
                 }
                 //if somebody is 121  or  more years old
-                if (DateTemp <= DateTime.Now.AddYears(-121))
+                if (DateTemp <= DateTime.Now.Date.AddYears(-121))
                 {
                     //record an error 
                     Error = Error + "You are too old : ";
@@ -229,8 +231,8 @@ namespace TrainersClasses
             }
             catch
             {
-                //record the error 
-                Error = Error + "The date of birth was not valid date : ";
+                ////record the error 
+                //Error = Error + "The date of birth was not valid date : ";
             }
             //if Password is less than 7
             if (password.Length < 8)
