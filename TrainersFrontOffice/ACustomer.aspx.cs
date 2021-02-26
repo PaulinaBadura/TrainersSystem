@@ -19,20 +19,50 @@ public partial class ACustomer : System.Web.UI.Page
 	{
 		//create a new instance of clsCustomer
 		clsCustomer ACustomer = new clsCustomer();
-		//capture the name
-		ACustomer.FirstName = txtFirstName.Text;
-		ACustomer.LastName = txtLAstName.Text;
-		ACustomer.Email = txtEmail.Text;
-		ACustomer.Password = txtPassword.Text;
-		ACustomer.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
-		ACustomer.HouseNo = txtHouseNo.Text;
-		ACustomer.Street = txtStreet.Text;
-		ACustomer.Town = txtTown.Text;
-		ACustomer.PostCode = txtPostCode.Text;
-		//store the Name in the session object
-		Session["ACustomer"] = ACustomer;
-		//redirect to the viewer page
-		Response.Redirect("CustomerViewer.aspx");
+		//capture all the parameters
+		string FirstName = txtFirstName.Text;
+		string LastName = txtLAstName.Text;
+		string Email = txtEmail.Text;
+		string Password = txtPassword.Text;
+		string DateOfBirth = txtDateOfBirth.Text;
+		string HouseNo = txtHouseNo.Text;
+		string Street = txtStreet.Text;
+		string Town = txtTown.Text;
+		string PostCode = txtPostCode.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = ACustomer.Valid(FirstName, LastName, Email, Password, DateOfBirth, HouseNo, Street, Town, PostCode);
+        if (Error == "")
+        {
+            //capture the name
+            ACustomer.FirstName = FirstName;
+            //capture the last name
+            ACustomer.LastName = LastName;
+            //capture an email
+            ACustomer.Email = Email;
+            //capture the password
+            ACustomer.Password = Password;
+            //capture the Date of birth 
+            ACustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+            //capture the house no
+            ACustomer.HouseNo = HouseNo;
+            //capture the street
+            ACustomer.Street = Street;
+            //capture the town
+            ACustomer.Town = Town;
+            //capture the post code
+            ACustomer.PostCode = PostCode;
+            //store the customer in the session object
+            Session["ACustomer"] = ACustomer;
+            //redirect to the viewer page
+            Response.Redirect("CustomerViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
 	}
 
     protected void Button1_Click(object sender, EventArgs e)

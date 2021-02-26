@@ -10,7 +10,7 @@ namespace Trainers_Testing
         //good test data to pass to the method
         string FirstName = "John";
         string LastName = "Wick";
-        string DateOfBirth = DateTime.Now.AddYears(-16).ToString();
+        string DateOfBirth = DateTime.Now.Date.AddYears(-16).ToString();
         string Email = "email12@test.uk";
         string Password = "Password123";
         string HouseNo = "123B";
