@@ -18,16 +18,35 @@ public partial class ATrainer : System.Web.UI.Page
         //create a new instance of clsTrainers
         clsTrainers ATrainer = new clsTrainers();
         //capture the properties
-        ATrainer.Brand = txtBrand.Text;
-        ATrainer.Name = txtName.Text;
-        ATrainer.Colour = ddlColour.Text;
-        ATrainer.Size = Convert.ToInt32(txtSize.Text);
-        ATrainer.Price = Convert.ToDecimal(txtPrice.Text);
-        ATrainer.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
-        //store the trainers in the session object
-        Session["ATrainer"] = ATrainer;
-        //redirect to the viewer page
-        Response.Redirect("TrainerViewer.aspx");
+        string Brand = txtBrand.Text;
+        string Name = txtName.Text;
+        string Colour = ddlColour.Text;
+        string Size = txtSize.Text;
+        string Price = txtPrice.Text;
+        string DateAdded = txtDateAdded.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data 
+        Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+        if (Error == "")
+        {
+            //capture the properties
+            ATrainer.Brand = Brand;
+            ATrainer.Name = Name;
+            ATrainer.Colour = Colour;
+            ATrainer.Size = Convert.ToInt32(Size);
+            ATrainer.Price = Convert.ToDecimal(Price);
+            ATrainer.DateAdded = Convert.ToDateTime(DateAdded);
+            //store the trainers in the session object
+            Session["ATrainer"] = ATrainer;
+            //redirect to the viewer page
+            Response.Redirect("TrainerViewer.aspx");
+        }
+        else
+        {
+            //display an error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
