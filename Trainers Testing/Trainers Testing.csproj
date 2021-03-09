@@ -57,6 +57,7 @@
     <Compile Include="tstOrderLine.cs" />
     <Compile Include="tstStaff.cs" />
     <Compile Include="tstTrainers.cs" />
+    <Compile Include="tstTrainersCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
