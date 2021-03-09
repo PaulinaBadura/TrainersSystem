@@ -231,8 +231,8 @@ namespace TrainersClasses
             }
             catch
             {
-                ////record the error 
-                //Error = Error + "The date of birth was not valid date : ";
+                //record the error
+                Error = Error + "The date of birth was not valid date : ";
             }
             //if Password is less than 7
             if (password.Length < 8)
