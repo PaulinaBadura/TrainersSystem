@@ -870,6 +870,133 @@ namespace Trainers_Testing
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-        
+
+        [TestMethod]
+        public void PriceMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Decimal TestPrice = 0.00M; //this should trigger an error
+            //convert the size variable to a string variable
+            string Price = TestPrice.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void PriceMin()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Decimal TestPrice = 0.01M; //this should pass
+            //convert the size variable to a string variable
+            string Price = TestPrice.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void PriceMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Decimal TestPrice = 0.02M; //this should pass
+            //convert the size variable to a string variable
+            string Price = TestPrice.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void PriceMid()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Decimal TestPrice = 250.00M; //this should pass
+            //convert the size variable to a string variable
+            string Price = TestPrice.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void PriceMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Decimal TestPrice = 499.99M; //this should pass
+            //convert the size variable to a string variable
+            string Price = TestPrice.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void PriceMax()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Decimal TestPrice = 500.00M; //this should pass
+            //convert the size variable to a string variable
+            string Price = TestPrice.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void PriceMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsTrainers ATrainer = new clsTrainers();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            Decimal TestPrice = 500.01M; //this should pass
+            //convert the size variable to a string variable
+            string Price = TestPrice.ToString();
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void PriceInvalidData()
+        {
+            //create instance of the class
+            clsTrainers ATrainer = new clsTrainers();
+            //string to store error message
+            String Error = "";
+            //set the date added to non date value
+            String Size = "Value entered is not money!";
+            //invoke the method
+            Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
     }
 }

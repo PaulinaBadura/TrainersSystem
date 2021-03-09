@@ -157,6 +157,8 @@ namespace TrainersClasses
             DateTime DateTemp;
             //temporary variable to store size values
             Int32 SizeTemp;
+            //temp variable to store price values
+            Decimal PriceTemp;
             //if the brand is blank
             if (brand.Length == 0)
             {
@@ -212,6 +214,7 @@ namespace TrainersClasses
                 //record the error
                 Error = Error + "The date entered is not a valid date : ";
             }
+
             try
             {
                 SizeTemp = Convert.ToInt32(size);
@@ -230,8 +233,26 @@ namespace TrainersClasses
             {
                 //record the error
                 Error = Error + "The value entered is not a number : ";
-            } 
-            
+            }
+            try
+            {
+                PriceTemp = Convert.ToDecimal(price);
+                if (PriceTemp < 0.01M)
+                {
+                    //record the error
+                    Error = Error + "The price cannot be a negative or 0 : ";
+                }
+                if (PriceTemp > 500.00M)
+                {
+                    Error = Error + "The price cannot be more than £500 : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The value entered is not money : ";
+            }
+
             //return any error message
             return Error;
         }
