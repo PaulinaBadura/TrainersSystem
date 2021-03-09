@@ -76,5 +76,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TrainersClasses\TrainersClasses.csproj">
+      <Project>{b2e6ef84-bed6-4225-b487-146faf03fe54}</Project>
+      <Name>TrainersClasses</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

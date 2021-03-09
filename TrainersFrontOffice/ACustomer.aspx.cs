@@ -32,7 +32,7 @@ public partial class ACustomer : System.Web.UI.Page
         //variable to store any error messages
         string Error = "";
         //validate the data
-        Error = ACustomer.Valid(FirstName, LastName, Email, Password, DateOfBirth, HouseNo, Street, Town, PostCode);
+        Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Email, Password,  HouseNo, Street, Town, PostCode);
         if (Error == "")
         {
             //capture the name

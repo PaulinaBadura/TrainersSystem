@@ -279,7 +279,7 @@ namespace Trainers_Testing
             //invoe the method
             Found = ACustomer.Find(CustomerID);
             //check the customer no
-            if (ACustomer.Password != "John123")
+            if (ACustomer.Password != "John1234")
             {
                 OK = false;
             }
