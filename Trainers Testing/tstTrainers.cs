@@ -990,7 +990,7 @@ namespace Trainers_Testing
             clsTrainers ATrainer = new clsTrainers();
             //string to store error message
             String Error = "";
-            //set the date added to non date value
+            //set the price to non money value
             String Size = "Value entered is not money!";
             //invoke the method
             Error = ATrainer.Valid(Brand, Name, Colour, Size, Price, DateAdded);
