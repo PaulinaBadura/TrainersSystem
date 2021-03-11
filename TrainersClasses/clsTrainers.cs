@@ -256,5 +256,13 @@ namespace TrainersClasses
             //return any error message
             return Error;
         }
+        public string AllDetails
+        {
+            get
+            {
+                return Brand + " " + Name;
+                
+            }
+        }
     }
 }

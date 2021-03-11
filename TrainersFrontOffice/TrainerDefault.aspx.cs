@@ -26,7 +26,7 @@ public partial class TrainerDefault : System.Web.UI.Page
         //set the name of primary key
         lstTrainers.DataValueField = "TrainerID";
         //set the data field to display
-        lstTrainers.DataTextField = "Brand";
+        lstTrainers.DataTextField = "AllDetails";
         //bind the data to the list
         lstTrainers.DataBind();
     }
