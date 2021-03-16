@@ -48,6 +48,8 @@ namespace TrainersClasses
 
         //private data member for the list
         List<clsCustomer> mCustomersList = new List<clsCustomer>();
+        //private data member thisCustomer
+        clsCustomer mThisCustomer = new clsCustomer();
         
         //public property for the customers list
         public List<clsCustomer> CustomersList
@@ -77,6 +79,39 @@ namespace TrainersClasses
                 //later
             }
         }
-        public clsCustomer ThisCustomer { get; set; }
+        public clsCustomer ThisCustomer
+        {
+            get
+            {
+                //return the private data
+                return mThisCustomer;
+            }
+            set
+            {
+                //set the private data
+                mThisCustomer = value;
+
+            }
+        }
+
+        public int Add()
+        {
+            //adds a new record to the database based on the values of mThisCustomer
+            //clsDataConnection to datbase
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameter for the stored procedure
+            DB.AddParameter("@FirstName", mThisCustomer.FirstName);
+            DB.AddParameter("@LastName", mThisCustomer.LastName);
+            DB.AddParameter("@DateOfBirth", mThisCustomer.DateOfBirth);
+            DB.AddParameter("@Email", mThisCustomer.Email);
+            DB.AddParameter("@Password", mThisCustomer.Password);
+            DB.AddParameter("@HouseNo", mThisCustomer.HouseNo);
+            DB.AddParameter("@Street", mThisCustomer.Street);
+            DB.AddParameter("@Town", mThisCustomer.Town);
+            DB.AddParameter("@PostCode", mThisCustomer.PostCode);
+            //execute the query returnin the primary key value
+            return DB.Execute("sproc_tblCustomer_Insert");
+           
+        }
     }
 }

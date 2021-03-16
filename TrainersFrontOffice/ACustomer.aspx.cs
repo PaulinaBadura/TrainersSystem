@@ -17,52 +17,8 @@ public partial class ACustomer : System.Web.UI.Page
 
 	protected void btnOK_Click1(object sender, EventArgs e)
 	{
-		//create a new instance of clsCustomer
-		clsCustomer ACustomer = new clsCustomer();
-		//capture all the parameters
-		string FirstName = txtFirstName.Text;
-		string LastName = txtLAstName.Text;
-		string Email = txtEmail.Text;
-		string Password = txtPassword.Text;
-		string DateOfBirth = txtDateOfBirth.Text;
-		string HouseNo = txtHouseNo.Text;
-		string Street = txtStreet.Text;
-		string Town = txtTown.Text;
-		string PostCode = txtPostCode.Text;
-        //variable to store any error messages
-        string Error = "";
-        //validate the data
-        Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Email, Password,  HouseNo, Street, Town, PostCode);
-        if (Error == "")
-        {
-            //capture the name
-            ACustomer.FirstName = FirstName;
-            //capture the last name
-            ACustomer.LastName = LastName;
-            //capture an email
-            ACustomer.Email = Email;
-            //capture the password
-            ACustomer.Password = Password;
-            //capture the Date of birth 
-            ACustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
-            //capture the house no
-            ACustomer.HouseNo = HouseNo;
-            //capture the street
-            ACustomer.Street = Street;
-            //capture the town
-            ACustomer.Town = Town;
-            //capture the post code
-            ACustomer.PostCode = PostCode;
-            //store the customer in the session object
-            Session["ACustomer"] = ACustomer;
-            //redirect to the viewer page
-            Response.Redirect("CustomerViewer.aspx");
-        }
-        else
-        {
-            //display the error message
-            lblError.Text = Error;
-        }
+        Add();
+        
 	}
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -101,4 +57,37 @@ public partial class ACustomer : System.Web.UI.Page
             lblError.Text = "Customer not found";
         }
     }
-}
+
+        void Add()
+        {
+            //create an instance ofthe collection class
+            clsCustomerCollection CustomerCollection = new clsCustomerCollection();
+            //validate the data on the web form
+            String Error = CustomerCollection.ThisCustomer.Valid(txtFirstName.Text, txtLAstName.Text, txtDateOfBirth.Text, txtEmail.Text, txtPassword.Text,  txtHouseNo.Text, txtStreet.Text, txtTown.Text, txtPostCode.Text); 
+            //if the data is ok the add it to the object
+            if(Error=="")
+            {
+                //get the data entered by the user 
+                CustomerCollection.ThisCustomer.FirstName = txtFirstName.Text;
+                CustomerCollection.ThisCustomer.LastName = txtLAstName.Text;
+                CustomerCollection.ThisCustomer.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
+                CustomerCollection.ThisCustomer.Email = txtEmail.Text;
+                CustomerCollection.ThisCustomer.Password = txtPassword.Text;
+                CustomerCollection.ThisCustomer.HouseNo = txtHouseNo.Text;
+                CustomerCollection.ThisCustomer.Street = txtStreet.Text;
+                CustomerCollection.ThisCustomer.Town = txtTown.Text;
+                CustomerCollection.ThisCustomer.PostCode = txtPostCode.Text;
+                //add the record
+                CustomerCollection.Add();
+                lblError.Text = "New customer added succesfully";
+            
+            
+
+            }
+            else
+            {
+                //report an error
+                lblError.Text = "There were problems with the data entered " + Error;
+            }
+         }
+    }
