@@ -100,6 +100,41 @@ namespace Trainers_Testing
         }
 
 
+        [TestMethod]
+        public void AddMethodOk()
+        {
+            //create an instance of a class we want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of the test data
+            clsCustomer TestCustomer = new clsCustomer();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestCustomer.CustomerID = 1;
+            TestCustomer.FirstName = "Paulina";
+            TestCustomer.LastName = "Rose";
+            TestCustomer.Email = "rose.p@gmail.com";
+            TestCustomer.Password = "mypassword1";
+            TestCustomer.DateOfBirth = DateTime.Now.Date.AddYears(-20);
+            TestCustomer.HouseNo = "1234";
+            TestCustomer.Street = "Street New";
+            TestCustomer.Town = "London";
+            TestCustomer.PostCode = "LW3 45G";
+            //set this customer to the test data
+            AllCustomers.ThisCustomer = TestCustomer;
+            //add the record
+            PrimaryKey = AllCustomers.Add();
+            //set the primary key of the test data
+            TestCustomer.CustomerID = PrimaryKey;
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestCustomer);
+
+
+        }
+
+
         
     }
 
