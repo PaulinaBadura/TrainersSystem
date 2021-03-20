@@ -149,7 +149,7 @@ namespace TrainersClasses
        
 
         //fuction for the public validation method
-        public string Valid(string customerID, string orderStatus, string dateAdded, string deliveryTown, string orderValue)
+        public string Valid(string customerID, string deliveryTown, string dateAdded, string orderStatus, string orderValue)
         {
             //this function accepts 5 parameters for validation
             //it returns string containing error message
@@ -188,13 +188,13 @@ namespace TrainersClasses
 
             
                 //if the delivery town is blank
-                if (deliveryTown.Length == 0)
+               if (deliveryTown.Length == 0)
                 {
                     Error = Error + "The delivery town may not be blank!  ";
                 }
 
                 //if the delivery town is too long
-                if (deliveryTown.Length > 50)
+               if (deliveryTown.Length > 50)
                 {
                     Error = Error + "The delivery town must be less than 50 characters!  ";
                 }

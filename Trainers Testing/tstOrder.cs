@@ -196,7 +196,7 @@ namespace Trainers_Testing
             //string to store error message
             String Error = "";
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
 
@@ -219,7 +219,7 @@ namespace Trainers_Testing
             TestDate = TestDate.AddYears(-100);
             String DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
 
@@ -241,7 +241,7 @@ namespace Trainers_Testing
             TestDate = TestDate.AddDays(-1);
             String DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
 
@@ -261,7 +261,7 @@ namespace Trainers_Testing
             TestDate = DateTime.Now.Date;
             String DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
 
@@ -284,7 +284,7 @@ namespace Trainers_Testing
             //convert to string variable
             String DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
 
@@ -306,7 +306,7 @@ namespace Trainers_Testing
             TestDate = TestDate.AddYears(100);
             String DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
 
@@ -323,7 +323,7 @@ namespace Trainers_Testing
             //set the date added to non date value
             String DateAdded = "This is not a date!";
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
 
@@ -339,7 +339,7 @@ namespace Trainers_Testing
             String Error = "";
             //blank string should fail
             string DeliveryTown = "";
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -355,7 +355,7 @@ namespace Trainers_Testing
             //one character should pass
             string DeliveryTown = "a";
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -371,7 +371,7 @@ namespace Trainers_Testing
             //2 characters should pass
             string DeliveryTown = "aa";
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -388,7 +388,7 @@ namespace Trainers_Testing
             string DeliveryTown = "";
             DeliveryTown = DeliveryTown.PadRight(49, 'a');
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -405,7 +405,7 @@ namespace Trainers_Testing
             string DeliveryTown = "";
             DeliveryTown = DeliveryTown.PadRight(50, 'a');
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -422,7 +422,7 @@ namespace Trainers_Testing
             string DeliveryTown = "";
             DeliveryTown = DeliveryTown.PadRight(51, 'a');
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -439,7 +439,7 @@ namespace Trainers_Testing
             string DeliveryTown = "";
             DeliveryTown = DeliveryTown.PadRight(50000, 'a');
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -456,7 +456,7 @@ namespace Trainers_Testing
             string DeliveryTown = "";
             DeliveryTown = DeliveryTown.PadRight(25, 'a');
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -473,7 +473,7 @@ namespace Trainers_Testing
             Int32 TestID;
             TestID = 0;
             String CustomerID = TestID.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -490,7 +490,7 @@ namespace Trainers_Testing
             Int32 TestID;
             TestID = 1;
             String CustomerID = TestID.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -508,7 +508,7 @@ namespace Trainers_Testing
             TestID = 50000;
             String CustomerID = TestID.ToString();
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -525,7 +525,7 @@ namespace Trainers_Testing
             Int32 TestID;
             TestID = 2;
             String CustomerID = TestID.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -542,7 +542,7 @@ namespace Trainers_Testing
             Int32 TestID;
             TestID = 100000;
             String CustomerID = TestID.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -558,7 +558,7 @@ namespace Trainers_Testing
             Int32 TestID;
             TestID = 100001;
             String CustomerID = TestID.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -575,7 +575,7 @@ namespace Trainers_Testing
             Int32 TestID;
             TestID = 1000000000;
             String CustomerID = TestID.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -591,7 +591,7 @@ namespace Trainers_Testing
             //set the date added to non date value
             String CustomerID = "This is not a number!";
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
 
@@ -608,7 +608,7 @@ namespace Trainers_Testing
             //set the date added to non date value
             String OrderValue = "This is not a number!";
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
 
@@ -626,7 +626,7 @@ namespace Trainers_Testing
             Int32 TestValue;
             TestValue = 1;
             String OrderValue = TestValue.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -643,7 +643,7 @@ namespace Trainers_Testing
             Int32 TestValue;
             TestValue = 0;
             String OrderValue = TestValue.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -660,7 +660,7 @@ namespace Trainers_Testing
             Int32 TestValue;
             TestValue = 25000;
             String OrderValue = TestValue.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -677,7 +677,7 @@ namespace Trainers_Testing
             Int32 TestValue;
             TestValue = 50000;
             String OrderValue = TestValue.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -694,7 +694,7 @@ namespace Trainers_Testing
             Int32 TestValue;
             TestValue = 50001;
             String OrderValue = TestValue.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -711,7 +711,7 @@ namespace Trainers_Testing
             Int32 TestValue;
             TestValue = 5000000;
             String OrderValue = TestValue.ToString();
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -727,7 +727,7 @@ namespace Trainers_Testing
             //this should pass
             string OrderStatus = "a";
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -743,7 +743,7 @@ namespace Trainers_Testing
             //blank string should fail
             string OrderStatus = "";
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -762,7 +762,7 @@ namespace Trainers_Testing
             string OrderStatus = "";
             OrderStatus = OrderStatus.PadRight(10, 'a');
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -779,7 +779,7 @@ namespace Trainers_Testing
             string OrderStatus = "";
             OrderStatus = OrderStatus.PadRight(11, 'a');
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -796,7 +796,7 @@ namespace Trainers_Testing
             string OrderStatus = "";
             OrderStatus = OrderStatus.PadRight(1000, 'a');
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -812,7 +812,7 @@ namespace Trainers_Testing
             string OrderStatus = "";
             OrderStatus = OrderStatus.PadRight(5, 'a');
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, OrderStatus, DateAdded, DeliveryTown, OrderValue);
+            Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
