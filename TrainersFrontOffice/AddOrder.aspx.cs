@@ -6,13 +6,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TrainersClasses;
 
-public partial class AnOrder : System.Web.UI.Page
+public partial class AddOrder : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
 
+    
+   
 
     protected void OKbtn_Click(object sender, EventArgs e)
     {
@@ -23,11 +25,11 @@ public partial class AnOrder : System.Web.UI.Page
         string DeliveryTown = txtDeliveryTown.Text;
         string DateAdded = txtOrderDate.Text;
         string OrderStatus = txtOrderStatus.Text;
-        string OrderValue =txtOrderValue.Text;
+        string OrderValue = txtOrderValue.Text;
         //variable to store error message
         string Error = "";
         //validate the data
-        Error = AnOrder.Valid(CustomerID,DeliveryTown,DateAdded,OrderStatus,OrderValue);
+        Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
         if (Error == "")
         {
             //capture customer ID
@@ -53,8 +55,6 @@ public partial class AnOrder : System.Web.UI.Page
             //display error message
             lblError.Text = Error;
         }
-
-
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
