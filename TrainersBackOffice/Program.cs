@@ -16,7 +16,7 @@ namespace TrainersBackOffice
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new mdiBackend());
+			Application.Run(new frmMainPageBackend());
 		}
 	}
 }

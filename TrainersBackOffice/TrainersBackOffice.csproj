@@ -52,11 +52,11 @@
     <Compile Include="frmCustomers.Designer.cs">
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </Compile>
-    <Compile Include="mdiBackend.cs">
+    <Compile Include="frmMainPageBackend.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mdiBackend.Designer.cs">
-      <DependentUpon>mdiBackend.cs</DependentUpon>
+    <Compile Include="frmMainPageBackend.Designer.cs">
+      <DependentUpon>frmMainPageBackend.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,8 +66,8 @@
     <EmbeddedResource Include="frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mdiBackend.resx">
-      <DependentUpon>mdiBackend.cs</DependentUpon>
+    <EmbeddedResource Include="frmMainPageBackend.resx">
+      <DependentUpon>frmMainPageBackend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
