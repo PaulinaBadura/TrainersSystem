@@ -14,8 +14,7 @@
         </asp:Panel>
         <asp:Panel ID="Panel5" runat="server" BackColor="#A3B6DA" style="z-index: 1; left: 578px; top: 159px; position: absolute; height: 302px; width: 507px">
         </asp:Panel>
-        <asp:Label ID="CustomerIDlbl" runat="server"  style="z-index: 1; left: 610px; top: 190px; position: absolute" Text="CustomerID:" Font-Italic="False" Font-Names="Yu Gothic"></asp:Label>
-        <asp:TextBox ID="txtCustomerID" runat="server" style="z-index: 1; left: 750px; top: 190px; position: absolute"></asp:TextBox>
+        <asp:Label ID="CustomerIDlbl" runat="server"  style="z-index: 1; left: 610px; top: 190px; position: absolute" Text="Email Adress:" Font-Italic="False" Font-Names="Yu Gothic"></asp:Label>
         <asp:TextBox ID="txtDeliveryTown" runat="server" style="z-index: 1; left: 750px; top: 230px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtOrderDate" runat="server" style="z-index: 1; left: 750px; top: 270px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtOrderValue" runat="server" style="z-index: 1; left: 750px; top: 310px; position: absolute"></asp:TextBox>
@@ -31,6 +30,8 @@
         <asp:Button ID="btnFind" runat="server"  style="z-index: 1; left: 830px; top: 105px; position: absolute" Text="Find" Font-Italic="False" Font-Names="Yu Gothic" OnClick="btnFind_Click"/>
         <asp:Label ID="lblOrderNo" runat="server" style="z-index: 1; left: 480px; top: 108px; position: absolute" Text="Order Number:" Font-Italic="False" Font-Names="Yu Gothic"></asp:Label>
         <asp:TextBox ID="txtOrderNo" runat="server" style="z-index: 1; left: 629px; top: 108px; position: absolute"></asp:TextBox>
+        <asp:DropDownList ID="ddlCustomerID" runat="server" style="z-index: 1; left: 750px; top: 188px; position: absolute; height: 21px; width: 165px">
+        </asp:DropDownList>
     </form>
 </body>
 </html>

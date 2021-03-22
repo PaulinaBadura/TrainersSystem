@@ -10,7 +10,9 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:ListBox ID="lstOrders" runat="server" Height="245px" Width="289px"></asp:ListBox>
+       
+        <asp:ListBox ID="lstOrders" runat="server" style="z-index: 1; left: 10px; top: 37px; position: absolute; height: 180px; width: 307px"></asp:ListBox>
+       
     </form>
 </body>
 </html>

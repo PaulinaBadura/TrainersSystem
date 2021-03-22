@@ -11,6 +11,9 @@ public partial class AddOrder : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        //update the developers of ddl
+        DisplayCustomerID();
+
     }
 
     
@@ -18,43 +21,11 @@ public partial class AddOrder : System.Web.UI.Page
 
     protected void OKbtn_Click(object sender, EventArgs e)
     {
-        //create a new instance of clsOrder
-        clsOrder AnOrder = new clsOrder();
-        //capture Customer ID
-        string CustomerID = txtCustomerID.Text;
-        string DeliveryTown = txtDeliveryTown.Text;
-        string DateAdded = txtOrderDate.Text;
-        string OrderStatus = txtOrderStatus.Text;
-        string OrderValue = txtOrderValue.Text;
-        //variable to store error message
-        string Error = "";
-        //validate the data
-        Error = AnOrder.Valid(CustomerID, DeliveryTown, DateAdded, OrderStatus, OrderValue);
-        if (Error == "")
-        {
-            //capture customer ID
-            AnOrder.CustomerID = Convert.ToInt32(CustomerID);
-            //capture delivery town
-            AnOrder.DeliveryTown = DeliveryTown;
-            //capture date added
-            AnOrder.DateAdded = Convert.ToDateTime(DateAdded);
-            //capture order value
-            AnOrder.OrderValue = Convert.ToInt32(OrderValue);
-            //capture order status
-            AnOrder.OrderStatus = OrderStatus;
+        //add the new record
+        Add();
+       
 
-            //store the customer ID in the session object
-            Session["AnOrder"] = AnOrder;
-            //redirect to viewer page
-            Response.Redirect("OrderViewer.aspx");
-
-        }
-
-        else
-        {
-            //display error message
-            lblError.Text = Error;
-        }
+        
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -73,13 +44,67 @@ public partial class AddOrder : System.Web.UI.Page
         if (Found == true)
         {
             //display the values in the form
-            txtCustomerID.Text = AnOrder.CustomerID.ToString();
+            ddlCustomerID.Text = AnOrder.EmailAddress;
             txtDeliveryTown.Text = AnOrder.DeliveryTown;
             txtOrderDate.Text = AnOrder.DateAdded.ToString();
             txtOrderStatus.Text = AnOrder.OrderStatus.ToString();
             txtOrderValue.Text = AnOrder.OrderValue.ToString();
 
 
+        }
+    }
+
+    Int32 DisplayCustomerID()
+    {
+        clsCustomerCollection Customers = new clsCustomerCollection();
+        string CustomerEmail;
+        string CustomerID;
+        Int32 Index = 0;
+        //while the index is less that the number of records to process
+        while (Index < Customers.Count)
+        {
+            CustomerEmail = Customers.CustomersList[Index].Email;
+            CustomerID = Convert.ToString(Customers.CustomersList[Index].CustomerID);
+            //set up the new row to be added to the list
+            ListItem NewCustomer = new ListItem(CustomerEmail , CustomerEmail);
+            //add the new row to the list
+            ddlCustomerID.Items.Add(NewCustomer);
+            //increment index
+            Index++;
+        }
+        //return the number of records found
+        return Customers.Count;
+    }
+
+    void Add()
+    {
+        //create instance of the class
+        clsOrderCollection NewOrder = new clsOrderCollection();
+        //validate the data on the web form
+        String Error = NewOrder.ThisOrder.Valid(ddlCustomerID.Text, txtDeliveryTown.Text, txtOrderDate.Text, txtOrderStatus.Text, txtOrderValue.Text);
+        if (Error == "")
+        {
+            //capture emailaddress
+            NewOrder.ThisOrder.EmailAddress = ddlCustomerID.Text;
+            //capture delivery town
+            NewOrder.ThisOrder.DeliveryTown = txtDeliveryTown.Text;
+            //capture date added
+            NewOrder.ThisOrder.DateAdded = Convert.ToDateTime(txtOrderDate.Text);
+            //capture order value
+            NewOrder.ThisOrder.OrderValue = Convert.ToInt32(txtOrderValue.Text);
+            //capture order status
+            NewOrder.ThisOrder.OrderStatus = txtOrderStatus.Text;
+            //add the record
+            NewOrder.Add();
+
+            lblError.Text = "New order was added succesfully";
+        }
+
+        else
+        {
+            //report error
+
+            lblError.Text = "There were problems with the data entered" + Error;
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Trainers_Testing
             TestItem.DeliveryTown = "Test Town";
             TestItem.OrderStatus = "Test Status";
             TestItem.OrderValue = 1;
-            TestItem.CustomerID = 1;
+            TestItem.EmailAddress = "sofia@gmail.com";
             TestItem.DateAdded = DateTime.Now.Date;
             //add the item to the list
             TestList.Add(TestItem);
@@ -50,6 +50,37 @@ namespace Trainers_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AllOrders.OrderList, TestList);
 
+        }
+
+        //test method for add
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create the item of test data
+            clsOrder TestItem = new clsOrder();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.OrderNo = 2;
+            TestItem.DeliveryTown = "Test Town";
+            TestItem.OrderStatus = "Test Status";
+            TestItem.OrderValue = 1;
+            TestItem.EmailAddress = "sofia@gmail.com";
+            TestItem.DateAdded = DateTime.Now.Date;
+            //set ThisOrder to the test data
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the primary key to the test data
+            TestItem.OrderNo = PrimaryKey;
+            //find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+
+            //test to see that two values are the same
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        
         }
 
 
@@ -64,7 +95,7 @@ namespace Trainers_Testing
             clsOrder TestOrder = new clsOrder();
             //set the properties of the test object
             TestOrder.OrderNo = 2;
-            TestOrder.CustomerID = 1;
+            TestOrder.EmailAddress = "sofia@gmail.com";
             TestOrder.OrderValue = 1;
             TestOrder.DeliveryTown = "Test Town";
             TestOrder.OrderStatus = "Test Status";
@@ -92,7 +123,7 @@ namespace Trainers_Testing
             TestItem.DeliveryTown = "Test Town";
             TestItem.OrderStatus = "Test Status";
             TestItem.OrderValue = 1;
-            TestItem.CustomerID = 1;
+            TestItem.EmailAddress = "sofia@gmail.com";
             TestItem.DateAdded = DateTime.Now.Date;
             //add the item to the list
             TestList.Add(TestItem);

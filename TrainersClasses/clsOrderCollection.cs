@@ -7,6 +7,8 @@ namespace TrainersClasses
     {
         //private data members for the list
         List<clsOrder> mOrderList = new List<clsOrder>();
+        clsOrder mThisOrder = new clsOrder();
+
         public List<clsOrder> OrderList
         {
             get
@@ -40,7 +42,20 @@ namespace TrainersClasses
 
 
 
-        public clsOrder ThisOrder { get; set; }
+        public clsOrder ThisOrder
+        {
+            get
+            {
+                //return the private data
+                return mThisOrder;
+            }
+            set
+            {
+                //set the private data
+                mThisOrder = value;
+            }
+
+        }
 
 
         //these lines of cone contain the constructor of the class
@@ -70,13 +85,28 @@ namespace TrainersClasses
                 AnOrder.OrderStatus = Convert.ToString(DB.DataTable.Rows[0]["OrderStatus"]);
                 AnOrder.OrderValue = Convert.ToInt32(DB.DataTable.Rows[0]["OrderValue"]);
                 AnOrder.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
-                AnOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                AnOrder.EmailAddress = Convert.ToString(DB.DataTable.Rows[0]["EmailAddress"]);
                 AnOrder.DeliveryTown = Convert.ToString(DB.DataTable.Rows[0]["DeliveryTown"]);
                 //add the record to the private data member
                 mOrderList.Add(AnOrder);
                 //point at the next record
                 Index++;
             }
+        }
+
+        public int Add()
+        {
+            //adds a new record to the database based on the value value of mThisOrder
+            //set the primary key value of the record
+            clsDataConnection DB = new clsDataConnection();
+            //set parameters for the stored procedure
+            DB.AddParameter("@OrderStatus", mThisOrder.OrderStatus);
+            DB.AddParameter("@OrderValue", mThisOrder.OrderValue);
+            DB.AddParameter("@DateAdded", mThisOrder.DateAdded);
+            DB.AddParameter("@EmailAddress", mThisOrder.EmailAddress);
+            DB.AddParameter("@DeliveryTown", mThisOrder.DeliveryTown);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblOrder_Insert");
         }
     }//end of clsOrderCollection
 }//end of namespace
