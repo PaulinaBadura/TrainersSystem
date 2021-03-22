@@ -62,6 +62,7 @@ public partial class ACustomer : System.Web.UI.Page
         {
             //create an instance ofthe collection class
             clsCustomerCollection CustomerCollection = new clsCustomerCollection();
+             clsDataConnection DB = new clsDataConnection();
             //validate the data on the web form
             String Error = CustomerCollection.ThisCustomer.Valid(txtFirstName.Text, txtLAstName.Text, txtDateOfBirth.Text, txtEmail.Text, txtPassword.Text,  txtHouseNo.Text, txtStreet.Text, txtTown.Text, txtPostCode.Text); 
             //if the data is ok the add it to the object
@@ -79,7 +80,7 @@ public partial class ACustomer : System.Web.UI.Page
                 CustomerCollection.ThisCustomer.PostCode = txtPostCode.Text;
                 //add the record
                 CustomerCollection.Add();
-                lblError.Text = "New customer added succesfully";
+                lblError.Text = "Your account has been created.";
             
             
 
@@ -90,4 +91,14 @@ public partial class ACustomer : System.Web.UI.Page
                 lblError.Text = "There were problems with the data entered " + Error;
             }
          }
+
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomerMainPage.aspx");
     }
+
+    protected void btnExistingCustomer_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ExistingCustomer.aspx");
+    }
+}

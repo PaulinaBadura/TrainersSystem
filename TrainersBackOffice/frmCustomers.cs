@@ -16,6 +16,8 @@ namespace TrainersBackOffice
 		public frmCustomers()
 		{
 			InitializeComponent();
+            btnYes.Visible = false;
+            btnNo.Visible = false;
 		}
 
         private void btnPopulate_Click(object sender, EventArgs e)
@@ -79,6 +81,49 @@ namespace TrainersBackOffice
                 //report an error
                 lblError2.Text = "There were problems with the data entered " + Error;
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //var to store the primary key value of the record to be deleted
+            Int32 CustomerID;
+            //if a record has beenselected from the list
+            if(lstCustomers.SelectedIndex != -1)
+            {
+                //get the primary key value of the record to delete
+                CustomerID = Convert.ToInt32(lstCustomers.SelectedValue);
+                //show confirmation message and buttons
+                lblConfirmation.Text = "Are you sure you want to delete this customer?";
+                btnNo.Visible = true;
+                btnYes.Visible = true;
+               
+            }
+            else
+            {
+                //display an error
+                lblError.Text = "Please select a record to be deleted from the list";
+            }
+        }
+
+        void DeleteCustomer()
+        {
+            Int32 CustomerID;
+            //function to delete selected record
+            //create a new in stance of the customer collection
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //find the record to delete
+            CustomerID = Convert.ToInt32(lstCustomers.SelectedValue);
+            AllCustomers.ThisCustomer.Find(CustomerID);
+            //delete the record 
+            AllCustomers.Delete();
+        }
+
+        private void btnYes_Click(object sender, EventArgs e)
+        {
+            //delete the record
+            DeleteCustomer();
+            //show confirmation message
+            lblConfirmation.Text = "Record has ben deleted";
         }
     }
 }

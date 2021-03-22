@@ -52,6 +52,11 @@
             this.txtPostCode = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblError2 = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnYes = new System.Windows.Forms.Button();
+            this.btnNo = new System.Windows.Forms.Button();
+            this.lblConfirmation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lstCustomers
@@ -174,10 +179,46 @@
             resources.ApplyResources(this.lblError2, "lblError2");
             this.lblError2.Name = "lblError2";
             // 
+            // btnEdit
+            // 
+            resources.ApplyResources(this.btnEdit, "btnEdit");
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            resources.ApplyResources(this.btnDelete, "btnDelete");
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnYes
+            // 
+            resources.ApplyResources(this.btnYes, "btnYes");
+            this.btnYes.Name = "btnYes";
+            this.btnYes.UseVisualStyleBackColor = true;
+            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
+            // 
+            // btnNo
+            // 
+            resources.ApplyResources(this.btnNo, "btnNo");
+            this.btnNo.Name = "btnNo";
+            this.btnNo.UseVisualStyleBackColor = true;
+            // 
+            // lblConfirmation
+            // 
+            resources.ApplyResources(this.lblConfirmation, "lblConfirmation");
+            this.lblConfirmation.Name = "lblConfirmation";
+            // 
             // frmCustomers
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblConfirmation);
+            this.Controls.Add(this.btnNo);
+            this.Controls.Add(this.btnYes);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.lblError2);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtPostCode);
@@ -233,6 +274,11 @@
         private System.Windows.Forms.TextBox txtPostCode;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lblError2;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnYes;
+        private System.Windows.Forms.Button btnNo;
+        private System.Windows.Forms.Label lblConfirmation;
     }
 }
 
