@@ -29,24 +29,38 @@
         private void InitializeComponent()
         {
             this.btnManageCustomers = new System.Windows.Forms.Button();
+            this.btnManageOrders = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnManageCustomers
             // 
-            this.btnManageCustomers.Location = new System.Drawing.Point(273, 213);
+            this.btnManageCustomers.Location = new System.Drawing.Point(243, 170);
+            this.btnManageCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManageCustomers.Name = "btnManageCustomers";
-            this.btnManageCustomers.Size = new System.Drawing.Size(183, 54);
+            this.btnManageCustomers.Size = new System.Drawing.Size(163, 43);
             this.btnManageCustomers.TabIndex = 0;
             this.btnManageCustomers.Text = "Manage Customers";
             this.btnManageCustomers.UseVisualStyleBackColor = true;
             this.btnManageCustomers.Click += new System.EventHandler(this.btnManageCustomers_Click);
             // 
+            // btnManageOrders
+            // 
+            this.btnManageOrders.Location = new System.Drawing.Point(243, 233);
+            this.btnManageOrders.Name = "btnManageOrders";
+            this.btnManageOrders.Size = new System.Drawing.Size(163, 45);
+            this.btnManageOrders.TabIndex = 1;
+            this.btnManageOrders.Text = "Manage Orders";
+            this.btnManageOrders.UseVisualStyleBackColor = true;
+            this.btnManageOrders.Click += new System.EventHandler(this.btnManageOrders_Click);
+            // 
             // frmMainPageBackend
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 360);
+            this.Controls.Add(this.btnManageOrders);
             this.Controls.Add(this.btnManageCustomers);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMainPageBackend";
             this.Text = "frmMainPageBackend";
             this.ResumeLayout(false);
@@ -56,5 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnManageCustomers;
+        private System.Windows.Forms.Button btnManageOrders;
     }
 }

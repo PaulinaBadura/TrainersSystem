@@ -23,5 +23,12 @@ namespace TrainersBackOffice
             Customers.Show();
             this.Hide();
         }
+
+        private void btnManageOrders_Click(object sender, EventArgs e)
+        {
+            frmOrders Orders = new frmOrders();
+            Orders.Show();
+            this.Hide();
+        }
     }
 }

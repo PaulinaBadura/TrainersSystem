@@ -7,7 +7,7 @@ namespace TrainersClasses
         //private data memeber for the order property
         private Int32 mOrderNo;
         private DateTime mDateAdded;
-        private Int32 mCustomerID;
+        private string mEmailAddress;
         private string mDeliveryTown;
         private string mOrderStatus;
         private Int32 mOrderValue;
@@ -48,18 +48,18 @@ namespace TrainersClasses
         }
 
         //Customer ID
-        public Int32 CustomerID
+        public string EmailAddress
         {
             get
             {
                 //this line sends data out of the property
-                return mCustomerID;
+                return mEmailAddress;
             }
 
             set
             {
                 //this line allows data into property
-                mCustomerID = value;
+                mEmailAddress = value;
             }
         }
 
@@ -130,7 +130,7 @@ namespace TrainersClasses
                 mOrderStatus = Convert.ToString(DB.DataTable.Rows[0]["OrderStatus"]);
                 mOrderValue = Convert.ToInt32(DB.DataTable.Rows[0]["OrderValue"]);
                 mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
-                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                mEmailAddress = Convert.ToString(DB.DataTable.Rows[0]["EmailAddress"]);
                 mDeliveryTown = Convert.ToString(DB.DataTable.Rows[0]["DeliveryTown"]);
 
                 //return that everything worked
@@ -149,7 +149,7 @@ namespace TrainersClasses
        
 
         //fuction for the public validation method
-        public string Valid(string customerID, string deliveryTown, string dateAdded, string orderStatus, string orderValue)
+        public string Valid(string emailaddress, string deliveryTown, string dateAdded, string orderStatus, string orderValue)
         {
             //this function accepts 5 parameters for validation
             //it returns string containing error message
@@ -159,7 +159,6 @@ namespace TrainersClasses
             String Error = "";
             //temporary variable to store data values
             DateTime DateTemp;
-            Int32 CustomerTemp;
             Int32 ValueTemp;
 
             try
@@ -198,27 +197,21 @@ namespace TrainersClasses
                 {
                     Error = Error + "The delivery town must be less than 50 characters!  ";
                 }
-        
 
-            try
-            {
-                CustomerTemp = Convert.ToInt32(customerID);
-                //if the customer ID is 0
-                if (CustomerTemp == 0)
-                {
-                    Error = Error + "The customer ID cannot be 0!  ";
-                }
 
-                //if the customer id is too big
-                if (CustomerTemp > 100000)
-                {
-                    Error = Error + "The customer ID is too big!  ";
-                }
-            }
-            catch
+            //if the order status is blank
+            if (emailaddress.Length == 0)
             {
-                Error = Error + "The customerID must be a number.  ";
+                Error = Error + "The email address may not be blank!  ";
             }
+
+            //if the order statys is too long
+            if (emailaddress.Length > 50)
+            {
+                Error = Error + "The email address must be less than 50 characters!  ";
+            }
+
+            
 
             try
             {

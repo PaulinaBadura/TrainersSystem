@@ -15,7 +15,7 @@ public partial class OrderViewer : System.Web.UI.Page
         //get the data from the session object
         AnOrder = (clsOrder)Session["AnOrder"];
         //display the Customer ID for this entry
-        Response.Write(AnOrder.CustomerID);
+        Response.Write(AnOrder.EmailAddress);
         Response.Write(AnOrder.DeliveryTown);
         Response.Write(AnOrder.DateAdded);
         Response.Write(AnOrder.OrderStatus);
