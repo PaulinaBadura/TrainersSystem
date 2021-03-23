@@ -134,6 +134,127 @@ namespace Trainers_Testing
 
         }
 
+        ///THIS PART OF CODE CONTAINS TEST FOR ADDRESS COLLECTION
+        ///WHEN A CUSTOMER WANTS TO ADD NEW ADDRESS FOR DELIVERY
+        ///IT STARTS HERE
+        ///
 
+        [TestMethod]
+        public void InstanceAddressOk()
+        {
+            //create an instance of the class we want to create
+            clsAddressCollection AllAddresses = new clsAddressCollection();
+            //test to see that it exists
+            Assert.IsNotNull(AllAddresses);
+        }
+
+        //test method to see if order list exists
+        [TestMethod]
+        public void AddressListOK()
+        {
+            //create an instance of the class we want to create
+            clsAddressCollection AllAddresses = new clsAddressCollection();
+            //create test data to assign to the property
+            //data needs to be a list of objects
+            List<clsAddress> TestList = new List<clsAddress>();
+            //add item to the list
+            //create the item of test data
+            clsAddress TestItem = new clsAddress();
+            //set its properties
+            TestItem.ChangeNo = 2;
+            TestItem.HouseNo = "123b";
+            TestItem.Street = "London Road";
+            TestItem.Town = "Leicester";
+            TestItem.PostCode = "Le2 102";
+            TestItem.Email = "sofia@gmail.com";
+            //add the item to the list
+            TestList.Add(TestItem);
+            //assign the data to the property
+            AllAddresses.AddressList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllAddresses.AddressList, TestList);
+
+        }
+
+        //test method for add
+        [TestMethod]
+        public void AddMethodAddressOK()
+        {
+            //create an instance of the class we want to create
+            clsAddressCollection AllAddresses = new clsAddressCollection();
+            //create the item of test data
+            clsAddress TestItem = new clsAddress();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.ChangeNo = 2;
+            TestItem.HouseNo = "123b";
+            TestItem.Street = "London Road";
+            TestItem.Town = "Leicester";
+            TestItem.PostCode = "Le2 102";
+            TestItem.Email = "sofia@gmail.com";
+            //set ThisOrder to the test data
+            AllAddresses.ThisAddress = TestItem;
+            //add the record
+            PrimaryKey = AllAddresses.AddAddress();
+            //set the primary key to the test data
+            TestItem.ChangeNo = PrimaryKey;
+            //find the record
+            AllAddresses.ThisAddress.Find(PrimaryKey);
+
+            //test to see that two values are the same
+            Assert.AreEqual(AllAddresses.ThisAddress, TestItem);
+
+        }
+
+        // test method to see if ThisOrder property exists
+        [TestMethod]
+        public void ThisAddressPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsAddressCollection AllAddresses = new clsAddressCollection();
+            //create the item of test data
+            clsAddress TestAddress = new clsAddress();
+            //set the properties of the test object
+            TestAddress.ChangeNo = 2;
+            TestAddress.HouseNo = "123b";
+            TestAddress.Street = "London Road";
+            TestAddress.Town = "Leicester";
+            TestAddress.PostCode = "Le2 102";
+            TestAddress.Email = "sofia@gmail.com";
+            //assign the data to the property
+            AllAddresses.ThisAddress = TestAddress;
+            //test to see that the two values are equal
+            Assert.AreEqual(AllAddresses.ThisAddress, TestAddress);
+
+        }
+
+        //test method to see if list and count property exist
+        [TestMethod]
+        public void ListAndCountAddressOK()
+        {
+            //create an instance of the class we want to create
+            clsAddressCollection AllAddresses = new clsAddressCollection();
+            //create test data to assign to the property
+            //data needs to be a list of objects
+            List<clsAddress> TestList = new List<clsAddress>();
+            //add item to the list
+            //create the item of test data
+            clsAddress TestItem = new clsAddress();
+            //set its properties
+            TestItem.ChangeNo = 2;
+            TestItem.HouseNo = "123b";
+            TestItem.Street = "London Road";
+            TestItem.Town = "Leicester";
+            TestItem.PostCode = "Le2 102";
+            TestItem.Email = "sofia@gmail.com";
+            //add the item to the list
+            TestList.Add(TestItem);
+            //assign the data to the property
+            AllAddresses.AddressList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllAddresses.Count, TestList.Count);
+
+        }
     }
 }

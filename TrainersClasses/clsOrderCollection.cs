@@ -8,6 +8,7 @@ namespace TrainersClasses
         //private data members for the list
         List<clsOrder> mOrderList = new List<clsOrder>();
         clsOrder mThisOrder = new clsOrder();
+       
 
         public List<clsOrder> OrderList
         {
@@ -58,6 +59,7 @@ namespace TrainersClasses
         }
 
 
+
         //these lines of cone contain the constructor of the class
         /////////////////////////////////////////
         /////////////////////////////////////////
@@ -94,6 +96,8 @@ namespace TrainersClasses
             }
         }
 
+        
+
         public int Add()
         {
             //adds a new record to the database based on the value value of mThisOrder
@@ -108,5 +112,7 @@ namespace TrainersClasses
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblOrder_Insert");
         }
+
+       
     }//end of clsOrderCollection
 }//end of namespace

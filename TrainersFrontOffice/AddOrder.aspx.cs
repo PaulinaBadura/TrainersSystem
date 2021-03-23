@@ -12,7 +12,7 @@ public partial class AddOrder : System.Web.UI.Page
     {
 
         //update the developers of ddl
-        DisplayCustomerID();
+        DisplayCustomerEmail();
 
     }
 
@@ -54,9 +54,10 @@ public partial class AddOrder : System.Web.UI.Page
         }
     }
 
-    Int32 DisplayCustomerID()
+    Int32 DisplayCustomerEmail()
     {
         clsCustomerCollection Customers = new clsCustomerCollection();
+        //create variables to store primary key and customer's email
         string CustomerEmail;
         string CustomerID;
         Int32 Index = 0;
@@ -104,7 +105,12 @@ public partial class AddOrder : System.Web.UI.Page
         {
             //report error
 
-            lblError.Text = "There were problems with the data entered" + Error;
+            lblError.Text = "There were problems with the data entered: " + Error;
         }
+    }
+
+    protected void BtnChange_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ChangeOrderAddress.aspx");
     }
 }
