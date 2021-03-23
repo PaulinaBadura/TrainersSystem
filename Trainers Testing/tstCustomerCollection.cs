@@ -245,36 +245,36 @@ namespace Trainers_Testing
             Assert.AreEqual(0, FilteredCustomers.Count);
         }
 
-        //[TestMethod]
-        //public void ReportByPostCodeTestDataFound()
-        //{
-        //    //instance of the filterd data 
-        //    clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
-        //    //var to store outcome
-        //    Boolean OK = true;
-        //    //apply a post code that doesnt exist
-        //    FilteredCustomers.ReportByPostCode("yyy yyy");
-        //    //check that the correct number of records are found
-        //    if(FilteredCustomers.Count == 2)
-        //    {
-        //        //check the first record id is 11
-        //        if(FilteredCustomers.CustomersList[0].CustomerID != 11)
-        //        {
-        //            OK = false;
-        //        }
-        //        //check the first record id is 12
-        //        if (FilteredCustomers.CustomersList[1].CustomerID != 12)
-        //        {
-        //            OK = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        OK = false;
-        //    }
-        //    //test to see that there are no records
-        //    Assert.IsTrue(OK);
-        //}
+        [TestMethod]
+        public void ReportByPostCodeTestDataFound()
+        {
+            //instance of the filterd data 
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            //var to store outcome
+            Boolean OK = true;
+            //apply a post code that doesnt exist
+            FilteredCustomers.ReportByPostCode("yyy yyy");
+            //check that the correct number of records are found
+            if (FilteredCustomers.Count == 2)
+            {
+                //check the first record id is 11
+                if (FilteredCustomers.CustomersList[0].CustomerID != 11)
+                {
+                    OK = false;
+                }
+                //check the first record id is 12
+                if (FilteredCustomers.CustomersList[1].CustomerID != 12)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
 
     }
 
