@@ -14,8 +14,15 @@ namespace Trainers_Testing
         string DateAdded = DateTime.Now.Date.ToString();
         string OrderStatus = "shipped";
 
+        //test data to pass methods for an address
+        string Email = "sofia@gmail.com";
+        string HouseNo = "123b";
+        string Street = "London Road";
+        string Town = "Leicester";
+        string PostCode = "LE2 102";
 
-        
+
+
 
         //these lines of code are all for FOUND with all attributes
         //it starts here
@@ -23,7 +30,7 @@ namespace Trainers_Testing
         //////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////
-        
+
         //test method for find function
         [TestMethod]
         public void FindMethodOK()
@@ -797,5 +804,669 @@ namespace Trainers_Testing
             Assert.AreEqual(AnOrder.OrderValue, TestData);
         }
 
+
+        ///THIS SECTION OF CODE CONTAINS TESTS FOR ADDRESS CLASS WHICH A CUSTOMER
+        ///CAN USE WHEN ADDING A DIFFERENT ADDRESS TO PLACE AN ORDER
+
+        //test method for instance of a class
+        [TestMethod]
+        public void InstanceAddressOK()
+        {
+            //create an instance of the class we want to create
+            clsAddress AnAddress = new clsAddress();
+            //test to see if it exists
+            Assert.IsNotNull(AnAddress);
+
+        }
+
+        //test to see if houseno exists in clsaddress
+        [TestMethod]
+        public void HouseNoPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsAddress AnAddress = new clsAddress();
+            //create som test data to assign to the property 
+            string TestData = "123b";
+            //assign the data to the property
+            AnAddress.HouseNo = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnAddress.HouseNo, TestData);
+        }
+
+        //test to see if street exists in clsaddress
+        [TestMethod]
+        public void StreetPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsAddress AnAddress = new clsAddress();
+            //create som test data to assign to the property 
+            string TestData = "London Road";
+            //assign the data to the property
+            AnAddress.Street = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnAddress.Street, TestData);
+        }
+
+
+        //test if postcode exists
+        [TestMethod]
+        public void PostCodePropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsAddress AnAddress = new clsAddress();
+            //create som test data to assign to the property 
+            string TestData = "LE2 102";
+            //assign the data to the property
+            AnAddress.PostCode = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnAddress.PostCode, TestData);
+        }
+
+
+        //test to see if town exists
+        [TestMethod]
+        public void TownPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsAddress AnAddress = new clsAddress();
+            //create som test data to assign to the property 
+            string TestData = "Leicester";
+            //assign the data to the property
+            AnAddress.Town = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnAddress.Town, TestData);
+        }
+
+        //test to see if email exists
+        [TestMethod]
+        public void EmailPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsAddress AnAddress = new clsAddress();
+            //create som test data to assign to the property 
+            string TestData = "sofia@gmail.com";
+            //assign the data to the property
+            AnAddress.Email = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnAddress.Email, TestData);
+        }
+
+        ///this part of code is for tests for validation for clsaddress
+        ///it starts here
+        ///
+
+        [TestMethod]
+        public void ValidAddressMehodOK()
+        {
+            //create instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string to store error message
+            String Error = "";
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void EmailMinLessOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Email = ""; 
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+        public void HouseNoMinLessOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNo = "";// should trigger an error 
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+        public void HouseNoMin()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNo = "a";
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+        public void HouseNoMinPlusOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNo = "aa";// should pass
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoMaxLessOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNo = "aaaaa";
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoMax()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNo = "aaaaaa";
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoMid()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNo = "aaa";
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoMaxPlusOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNo = "aaaaaaa";
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoExtremeMax()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNo = "";
+            //this should fail
+            HouseNo = HouseNo.PadRight(500, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMinLessOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            //an empty string should fail
+            string Street = "";
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+        public void StreetMin()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Street = "";
+            //this should pass
+            Street = Street.PadRight(1, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+        public void StreetMinPlusOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Street = "";
+            //this should pass
+            Street = Street.PadRight(2, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMaxLessOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Street = "";
+            //this should pass
+            Street = Street.PadRight(49, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMax()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Street = "";
+            //this should pass
+            Street = Street.PadRight(50, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMid()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Street = "";
+            //this should pass
+            Street = Street.PadRight(25, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMaxPlusOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Street = "";
+            //this should fail
+            Street = Street.PadRight(51, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetExtremeMax()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Street = "";
+            //this should fail
+            Street = Street.PadRight(500, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TwonMinLessOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Town = "";
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+        public void TownMin()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Town = "";
+            //this should pass
+            Town = Town.PadRight(1, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+        public void TownMinPlusOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Town = "";
+            //this should pass
+            Town = Town.PadRight(2, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMaxLessOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Town = "";
+            //this should pass
+            Town = Town.PadRight(59, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMax()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Town = "";
+            //this should pass
+            Town = Town.PadRight(60, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMid()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Town = "";
+            //this should pass
+            Town = Town.PadRight(30, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMaxPlusOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Town = "";
+            //this should fail
+            Town = Town.PadRight(61, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownExtremeMax()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string Town = "";
+            //this should fail
+            Town = Town.PadRight(500, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void PostCodedMinLessOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            //blank string should fail
+            string PostCode = "";
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+        public void PostCodeMin()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string PostCode = "";
+            //this should pass
+            PostCode = PostCode.PadRight(1, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+        public void PostCodeMinPlusOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string PostCode = "";
+            //should pass
+            PostCode = PostCode.PadRight(2, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMaxLessOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string PostCode = "";
+            //should pass
+            PostCode = PostCode.PadRight(7, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMax()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string PostCode = "";
+            //this should pass
+            PostCode = PostCode.PadRight(8, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMid()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string PostCode = "";
+            //should pass
+            PostCode = PostCode.PadRight(4, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMaxPlusOne()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string PostCode = "";
+            //should fail
+            PostCode = PostCode.PadRight(9, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeExtremeMax()
+        {
+            //create an instance of the class
+            clsAddress AnAddress = new clsAddress();
+            //string var to store any Error  message
+            String Error = "";
+            //create some test data to pass to the method
+            string PostCode = "";
+            //should fail
+            PostCode = PostCode.PadRight(500, 'a');
+            //invoke the method
+            Error = AnAddress.Valid(Email, HouseNo, Street, Town, PostCode);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }

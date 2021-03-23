@@ -23,7 +23,6 @@
         <asp:Label ID="OrderValuelbl" runat="server" style="z-index: 1; left: 610px; top: 310px; position: absolute" Text="Order Value:" Font-Italic="False" Font-Names="Yu Gothic"></asp:Label>
         <asp:Label ID="OrderStatuslbl" runat="server" style="z-index: 1; left: 610px; top: 350px; position: absolute" Text="Order Status:" Font-Italic="False" Font-Names="Yu Gothic"></asp:Label>
         <asp:TextBox ID="txtOrderStatus" runat="server" style="z-index: 1; left: 750px; top: 350px; position: absolute"></asp:TextBox>
-        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 468px; top: 505px; position: absolute"></asp:Label>
         <asp:Label ID="lblAdd" runat="server" Font-Size="X-Large" ForeColor="#314367" style="z-index: 1; left: 467px; top: 41px; position: absolute; height: 22px" Text="ADD NEW ORDER"></asp:Label>
         <asp:Button ID="OKbtn"  runat="server" style="z-index: 1; left: 638px; top: 409px; position: absolute" Text="OK" Font-Italic="False" Font-Names="Yu Gothic" OnClick="OKbtn_Click" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 752px; top: 409px; position: absolute" Text="Cancel" Font-Italic="False" Font-Names="Yu Gothic" />
@@ -32,6 +31,15 @@
         <asp:TextBox ID="txtOrderNo" runat="server" style="z-index: 1; left: 629px; top: 108px; position: absolute"></asp:TextBox>
         <asp:DropDownList ID="ddlCustomerID" runat="server" style="z-index: 1; left: 750px; top: 188px; position: absolute; height: 21px; width: 165px">
         </asp:DropDownList>
+        <asp:Panel ID="Panel6" runat="server" BackColor="#FBEBD8" style="z-index: 1; left: 49px; top: 217px; position: absolute; height: 176px; width: 373px">
+        </asp:Panel>
+        <asp:Label ID="lblAddress" runat="server" style="z-index: 1; left: 76px; top: 243px; position: absolute" Text="Is your delivery address different ?" Font-Names="Yu Gothic"></asp:Label>
+        <asp:Button ID="BtnChange" runat="server" style="z-index: 1; left: 70px; top: 301px; position: absolute; height: 34px; width: 335px;" Text="Change you address HERE" Font-Names="Yu Gothic" OnClick="BtnChange_Click" />
+        <asp:Label ID="lblDifferent" runat="server" style="z-index: 1; left: 44px; top: 140px; position: absolute; height: 22px; width: 365px;" Text="DIFFERENT THAN REGISTERED?" Font-Size="X-Large" ForeColor="#314367"></asp:Label>
+        <asp:Label ID="lbl" runat="server" style="z-index: 1; left: 420px; top: 510px; position: absolute" Text="PLEASE write placed into Order Status section when completing an order. " Font-Names="Yu Gothic"></asp:Label>
+        <p>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 68px; top: 573px; position: absolute"></asp:Label>
+        </p>
     </form>
 </body>
 </html>
