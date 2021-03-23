@@ -30,14 +30,15 @@
         {
             this.btnManageCustomers = new System.Windows.Forms.Button();
             this.btnManageOrders = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnManageCustomers
             // 
-            this.btnManageCustomers.Location = new System.Drawing.Point(243, 170);
+            this.btnManageCustomers.Location = new System.Drawing.Point(273, 212);
             this.btnManageCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManageCustomers.Name = "btnManageCustomers";
-            this.btnManageCustomers.Size = new System.Drawing.Size(163, 43);
+            this.btnManageCustomers.Size = new System.Drawing.Size(183, 54);
             this.btnManageCustomers.TabIndex = 0;
             this.btnManageCustomers.Text = "Manage Customers";
             this.btnManageCustomers.UseVisualStyleBackColor = true;
@@ -45,19 +46,29 @@
             // 
             // btnManageOrders
             // 
-            this.btnManageOrders.Location = new System.Drawing.Point(243, 233);
+            this.btnManageOrders.Location = new System.Drawing.Point(273, 291);
+            this.btnManageOrders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnManageOrders.Name = "btnManageOrders";
-            this.btnManageOrders.Size = new System.Drawing.Size(163, 45);
+            this.btnManageOrders.Size = new System.Drawing.Size(183, 56);
             this.btnManageOrders.TabIndex = 1;
             this.btnManageOrders.Text = "Manage Orders";
             this.btnManageOrders.UseVisualStyleBackColor = true;
             this.btnManageOrders.Click += new System.EventHandler(this.btnManageOrders_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::TrainersBackOffice.Properties.Resources.Logo;
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(776, 143);
+            this.panel1.TabIndex = 2;
+            // 
             // frmMainPageBackend
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 360);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnManageOrders);
             this.Controls.Add(this.btnManageCustomers);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -71,5 +82,6 @@
 
         private System.Windows.Forms.Button btnManageCustomers;
         private System.Windows.Forms.Button btnManageOrders;
+        private System.Windows.Forms.Panel panel1;
     }
 }

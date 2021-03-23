@@ -60,16 +60,33 @@
             this.btnCancle = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblAddEditConf = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnFilterEmail = new System.Windows.Forms.Button();
+            this.btnFilterPostCode = new System.Windows.Forms.Button();
+            this.btnFilterId = new System.Windows.Forms.Button();
+            this.txtFilterByEmail = new System.Windows.Forms.TextBox();
+            this.txtFilterByPostCode = new System.Windows.Forms.TextBox();
+            this.txtFilterByID = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblFilterError = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnHome = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstCustomers
             // 
-            this.lstCustomers.FormattingEnabled = true;
             resources.ApplyResources(this.lstCustomers, "lstCustomers");
+            this.lstCustomers.FormattingEnabled = true;
             this.lstCustomers.Name = "lstCustomers";
             // 
             // btnPopulate
@@ -236,7 +253,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(186)))), ((int)(((byte)(205)))));
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lblAddEditConf);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.txtFirstName);
             this.panel1.Controls.Add(this.label1);
@@ -262,6 +278,11 @@
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
             // lblAddEditConf
             // 
             resources.ApplyResources(this.lblAddEditConf, "lblAddEditConf");
@@ -276,15 +297,105 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // label2
+            // btnFilterEmail
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.btnFilterEmail, "btnFilterEmail");
+            this.btnFilterEmail.Name = "btnFilterEmail";
+            this.btnFilterEmail.UseVisualStyleBackColor = true;
+            this.btnFilterEmail.Click += new System.EventHandler(this.btnFilterEmail_Click);
+            // 
+            // btnFilterPostCode
+            // 
+            resources.ApplyResources(this.btnFilterPostCode, "btnFilterPostCode");
+            this.btnFilterPostCode.Name = "btnFilterPostCode";
+            this.btnFilterPostCode.UseVisualStyleBackColor = true;
+            this.btnFilterPostCode.Click += new System.EventHandler(this.btnFilterPostCode_Click);
+            // 
+            // btnFilterId
+            // 
+            resources.ApplyResources(this.btnFilterId, "btnFilterId");
+            this.btnFilterId.Name = "btnFilterId";
+            this.btnFilterId.UseVisualStyleBackColor = true;
+            this.btnFilterId.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // txtFilterByEmail
+            // 
+            resources.ApplyResources(this.txtFilterByEmail, "txtFilterByEmail");
+            this.txtFilterByEmail.Name = "txtFilterByEmail";
+            // 
+            // txtFilterByPostCode
+            // 
+            resources.ApplyResources(this.txtFilterByPostCode, "txtFilterByPostCode");
+            this.txtFilterByPostCode.Name = "txtFilterByPostCode";
+            // 
+            // txtFilterByID
+            // 
+            resources.ApplyResources(this.txtFilterByID, "txtFilterByID");
+            this.txtFilterByID.Name = "txtFilterByID";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(235)))), ((int)(((byte)(216)))));
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.txtFilterByID);
+            this.panel2.Controls.Add(this.btnFilterEmail);
+            this.panel2.Controls.Add(this.txtFilterByEmail);
+            this.panel2.Controls.Add(this.txtFilterByPostCode);
+            this.panel2.Controls.Add(this.btnFilterPostCode);
+            this.panel2.Controls.Add(this.btnFilterId);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.panel3.Controls.Add(this.lblFilterError);
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Name = "panel3";
+            // 
+            // lblFilterError
+            // 
+            resources.ApplyResources(this.lblFilterError, "lblFilterError");
+            this.lblFilterError.Name = "lblFilterError";
+            // 
+            // panel4
+            // 
+            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.Controls.Add(this.btnHome);
+            this.panel4.Name = "panel4";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // btnHome
+            // 
+            resources.ApplyResources(this.btnHome, "btnHome");
+            this.btnHome.Name = "btnHome";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // frmCustomers
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.lblAddEditConf);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblConfirmation);
             this.Controls.Add(this.btnNo);
@@ -299,6 +410,11 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,6 +456,20 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lblAddEditConf;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnFilterEmail;
+        private System.Windows.Forms.Button btnFilterPostCode;
+        private System.Windows.Forms.Button btnFilterId;
+        private System.Windows.Forms.TextBox txtFilterByEmail;
+        private System.Windows.Forms.TextBox txtFilterByPostCode;
+        private System.Windows.Forms.TextBox txtFilterByID;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblFilterError;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnHome;
     }
 }
 

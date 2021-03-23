@@ -276,6 +276,30 @@ namespace Trainers_Testing
             Assert.IsTrue(OK);
         }
 
+        [TestMethod]
+        public void ReportByEmailMethodOK()
+        {
+            //create an instance of the class contianing unfiltered results
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create an instance of the filtered data
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            //apply a blank tring (should return all records)
+            FilteredCustomers.ReportByEmail("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.Count, FilteredCustomers.Count);
+        }
+
+        [TestMethod]
+        public void ReportByEmailNoneFound()
+        {
+            //instance of the filterd data 
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            //apply apost code that dosent exist
+            FilteredCustomers.ReportByEmail("xxxxxxxx");
+            //test to see that the two values are the same
+            Assert.AreEqual(0, FilteredCustomers.Count);
+        }
+
     }
 
 }
