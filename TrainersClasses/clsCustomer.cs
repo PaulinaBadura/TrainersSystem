@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+    
+
 
 namespace TrainersClasses
 {
@@ -187,6 +190,7 @@ namespace TrainersClasses
 
         public string Valid(string firstName, string lastName, string dateOfBirth, string email, string password, string houseNo, string street, string town, string postCode)
         {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             //create the string variable to store the error
             String Error = "";
             DateTime DateTemp;
@@ -251,6 +255,11 @@ namespace TrainersClasses
             {
                 //record an error
                 Error = Error + "Email may not be blank : ";
+            }
+            
+            else if(Regex.IsMatch(email,pattern)==false)
+            {
+                Error = Error + "Email is not valid. The correct format is 'example@example.uk' : ";
             }
             //if house no is blank
             if (houseNo.Length == 0)

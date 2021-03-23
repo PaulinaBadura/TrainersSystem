@@ -167,5 +167,18 @@ namespace TrainersClasses
                 Index++;
             }
         }
+
+        public void ReportByEmail(string Email)
+        {
+            //filters the records based on full or partial post code
+            //connect to the database 
+            clsDataConnection DB = new clsDataConnection();
+            //send the PostCode parameter to the database
+            DB.AddParameter("@Email", Email);
+            //execute the stored proc
+            DB.Execute("sproc_tblCustomer_FilterByEmail");
+            //populate the array list with data table
+            PopulateArray(DB);
+        }
     }
 }
