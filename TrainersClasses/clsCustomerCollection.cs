@@ -151,7 +151,7 @@ namespace TrainersClasses
                 clsCustomer ACustomer = new clsCustomer();
                 //read the fields from the current record
 
-                //ACustomer.CustomerID= Convert.ToInt32(DB.DataTable.Rows[Index]["CutomerID"]);
+                ACustomer.CustomerID= Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
                 ACustomer.FirstName = Convert.ToString(DB.DataTable.Rows[Index]["FirstName"]);
                 ACustomer.LastName = Convert.ToString(DB.DataTable.Rows[Index]["LastName"]);
                 ACustomer.DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfBirth"]);

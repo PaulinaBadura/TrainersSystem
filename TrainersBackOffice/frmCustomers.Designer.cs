@@ -57,6 +57,13 @@
             this.btnYes = new System.Windows.Forms.Button();
             this.btnNo = new System.Windows.Forms.Button();
             this.lblConfirmation = new System.Windows.Forms.Label();
+            this.btnCancle = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblAddEditConf = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstCustomers
@@ -184,6 +191,7 @@
             resources.ApplyResources(this.btnEdit, "btnEdit");
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -204,46 +212,93 @@
             resources.ApplyResources(this.btnNo, "btnNo");
             this.btnNo.Name = "btnNo";
             this.btnNo.UseVisualStyleBackColor = true;
+            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
             // lblConfirmation
             // 
             resources.ApplyResources(this.lblConfirmation, "lblConfirmation");
             this.lblConfirmation.Name = "lblConfirmation";
             // 
+            // btnCancle
+            // 
+            resources.ApplyResources(this.btnCancle, "btnCancle");
+            this.btnCancle.Name = "btnCancle";
+            this.btnCancle.UseVisualStyleBackColor = true;
+            this.btnCancle.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(235)))), ((int)(((byte)(216)))));
+            this.label1.Name = "label1";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(186)))), ((int)(((byte)(205)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblAddEditConf);
+            this.panel1.Controls.Add(this.btnUpdate);
+            this.panel1.Controls.Add(this.txtFirstName);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtLastName);
+            this.panel1.Controls.Add(this.btnCancle);
+            this.panel1.Controls.Add(this.txtEmail);
+            this.panel1.Controls.Add(this.txtPassword);
+            this.panel1.Controls.Add(this.txtDateOfBirth);
+            this.panel1.Controls.Add(this.txtHouseNo);
+            this.panel1.Controls.Add(this.txtStreet);
+            this.panel1.Controls.Add(this.txtTown);
+            this.panel1.Controls.Add(this.txtPostCode);
+            this.panel1.Controls.Add(this.btnAdd);
+            this.panel1.Controls.Add(this.lblFirstName);
+            this.panel1.Controls.Add(this.lblPostCode);
+            this.panel1.Controls.Add(this.lblLastName);
+            this.panel1.Controls.Add(this.lblTown);
+            this.panel1.Controls.Add(this.lblEmail);
+            this.panel1.Controls.Add(this.lblStreet);
+            this.panel1.Controls.Add(this.lblPassword);
+            this.panel1.Controls.Add(this.lblHouseNo);
+            this.panel1.Controls.Add(this.lblDateOfBirth);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // lblAddEditConf
+            // 
+            resources.ApplyResources(this.lblAddEditConf, "lblAddEditConf");
+            this.lblAddEditConf.ForeColor = System.Drawing.Color.Black;
+            this.lblAddEditConf.Name = "lblAddEditConf";
+            this.lblAddEditConf.Click += new System.EventHandler(this.lblAddEditConf_Click);
+            // 
+            // btnUpdate
+            // 
+            resources.ApplyResources(this.btnUpdate, "btnUpdate");
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
             // frmCustomers
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblConfirmation);
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.lblError2);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtPostCode);
-            this.Controls.Add(this.txtTown);
-            this.Controls.Add(this.txtStreet);
-            this.Controls.Add(this.txtHouseNo);
-            this.Controls.Add(this.txtDateOfBirth);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.txtFirstName);
-            this.Controls.Add(this.lblPostCode);
-            this.Controls.Add(this.lblTown);
-            this.Controls.Add(this.lblStreet);
-            this.Controls.Add(this.lblHouseNo);
-            this.Controls.Add(this.lblDateOfBirth);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnPopulate);
             this.Controls.Add(this.lstCustomers);
             this.Name = "frmCustomers";
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,6 +334,12 @@
         private System.Windows.Forms.Button btnYes;
         private System.Windows.Forms.Button btnNo;
         private System.Windows.Forms.Label lblConfirmation;
+        private System.Windows.Forms.Button btnCancle;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Label lblAddEditConf;
+        private System.Windows.Forms.Label label2;
     }
 }
 
