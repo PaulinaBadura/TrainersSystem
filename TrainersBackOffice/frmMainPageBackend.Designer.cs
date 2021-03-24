@@ -36,10 +36,10 @@
             // 
             // btnManageCustomers
             // 
-            this.btnManageCustomers.Location = new System.Drawing.Point(273, 212);
+            this.btnManageCustomers.Location = new System.Drawing.Point(242, 182);
             this.btnManageCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManageCustomers.Name = "btnManageCustomers";
-            this.btnManageCustomers.Size = new System.Drawing.Size(183, 54);
+            this.btnManageCustomers.Size = new System.Drawing.Size(267, 54);
             this.btnManageCustomers.TabIndex = 0;
             this.btnManageCustomers.Text = "Manage Customers";
             this.btnManageCustomers.UseVisualStyleBackColor = true;
@@ -47,10 +47,10 @@
             // 
             // btnManageOrders
             // 
-            this.btnManageOrders.Location = new System.Drawing.Point(273, 291);
+            this.btnManageOrders.Location = new System.Drawing.Point(242, 252);
             this.btnManageOrders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnManageOrders.Name = "btnManageOrders";
-            this.btnManageOrders.Size = new System.Drawing.Size(183, 56);
+            this.btnManageOrders.Size = new System.Drawing.Size(267, 56);
             this.btnManageOrders.TabIndex = 1;
             this.btnManageOrders.Text = "Manage Orders";
             this.btnManageOrders.UseVisualStyleBackColor = true;
