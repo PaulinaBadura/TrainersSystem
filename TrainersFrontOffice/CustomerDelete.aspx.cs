@@ -15,6 +15,11 @@ public partial class CustomerDelete : System.Web.UI.Page
         //get the customer id to be deleted from the session 
         CustomerID = Convert.ToInt32(Session["CustomerID"]);
         btnMainPage.Visible = false;
+        clsCustomerCollection AllCustomers = new clsCustomerCollection();
+        //find the record to update
+        AllCustomers.ThisCustomer.Find(CustomerID);
+        //display the data for this record
+       lblEmail.Text = AllCustomers.ThisCustomer.FirstName;
     }
 
     void DeleteCustomer()
@@ -44,7 +49,7 @@ public partial class CustomerDelete : System.Web.UI.Page
 
     protected void btnNo_Click(object sender, EventArgs e)
     {
-        Response.Redirect("ExistingCustomer.aspx");
+        Response.Redirect("ExisitngCustomer.aspx");
     }
 
     protected void btnMainPage_Click(object sender, EventArgs e)
