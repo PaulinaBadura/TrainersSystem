@@ -61,8 +61,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblAddEditConf = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.lblAddEditConf = new System.Windows.Forms.Label();
             this.btnFilterEmail = new System.Windows.Forms.Button();
             this.btnFilterPostCode = new System.Windows.Forms.Button();
             this.btnFilterId = new System.Windows.Forms.Button();
@@ -70,12 +70,12 @@
             this.txtFilterByPostCode = new System.Windows.Forms.TextBox();
             this.txtFilterByID = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblFilterError = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblFilterError = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -283,19 +283,19 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // lblAddEditConf
-            // 
-            resources.ApplyResources(this.lblAddEditConf, "lblAddEditConf");
-            this.lblAddEditConf.ForeColor = System.Drawing.Color.Black;
-            this.lblAddEditConf.Name = "lblAddEditConf";
-            this.lblAddEditConf.Click += new System.EventHandler(this.lblAddEditConf_Click);
-            // 
             // btnUpdate
             // 
             resources.ApplyResources(this.btnUpdate, "btnUpdate");
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // lblAddEditConf
+            // 
+            resources.ApplyResources(this.lblAddEditConf, "lblAddEditConf");
+            this.lblAddEditConf.ForeColor = System.Drawing.Color.Black;
+            this.lblAddEditConf.Name = "lblAddEditConf";
+            this.lblAddEditConf.Click += new System.EventHandler(this.lblAddEditConf_Click);
             // 
             // btnFilterEmail
             // 
@@ -348,6 +348,21 @@
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
@@ -365,21 +380,6 @@
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Controls.Add(this.btnHome);
             this.panel4.Name = "panel4";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
             // 
             // btnHome
             // 
