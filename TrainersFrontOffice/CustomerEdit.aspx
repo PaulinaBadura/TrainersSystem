@@ -5,6 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        #form1 {
+            height: 18px;
+            width: 1241px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,7 +30,7 @@
 		<asp:Label ID="lblPostCode" runat="server" style="z-index: 1; left: 250px; top: 650px; position: absolute" Text="PostCode"></asp:Label>
 		</p>
         <p>
-		<asp:Label ID="lblError" runat="server" style="z-index: 1; left: 248px; top: 724px; position: absolute; right: 247px;"></asp:Label>
+		<asp:Label ID="lblError" runat="server" style="z-index: 1; left: 718px; top: 435px; position: absolute; right: -223px;"></asp:Label>
     	</p>
         <p>
 		<asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 458px; top: 250px; position: absolute"></asp:TextBox>
@@ -36,12 +42,20 @@
 		<asp:TextBox ID="txtStreet" runat="server" style="z-index: 1; left: 458px; top: 550px; position: absolute"></asp:TextBox>
 		<asp:TextBox ID="txtTown" runat="server" style="z-index: 1; left: 458px; top: 600px; position: absolute"></asp:TextBox>
 		<asp:TextBox ID="txtPostCode" runat="server" style="z-index: 1; left: 458px; top: 650px; position: absolute"></asp:TextBox>
+		    <asp:Label ID="Label2" runat="server" Font-Italic="True" style="z-index: 1; left: 257px; top: 203px; position: absolute" Text="Fill in the form with a corect data"></asp:Label>
 		</p>
         <p>
-        	<asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 596px; top: 791px; position: absolute; width: 115px;" Text="OK" OnClick="btnOK_Click1" />
-    	<asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 430px; top: 791px; position: absolute; width: 115px;" Text="Cancel" OnClick="btnCancel_Click" />
-            <asp:Button ID="btnGoback" runat="server" OnClick="btnGoback_Click" style="z-index: 1; left: 914px; top: 358px; position: absolute" Text="Go to the main page" />
+        	<asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 603px; top: 706px; position: absolute; width: 115px;" Text="OK" OnClick="btnOK_Click1" />
+    	<asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 452px; top: 706px; position: absolute; width: 115px;" Text="Cancel" OnClick="btnCancel_Click" />
+            <asp:Button ID="btnGoback" runat="server" OnClick="btnGoback_Click" style="z-index: 1; left: 910px; top: 341px; position: absolute; width: 325px;" Text="Go to the main page" />
             <asp:Button ID="btnGoToAccount" runat="server" OnClick="btnGoToAccount_Click" style="z-index: 1; left: 910px; top: 293px; position: absolute" Text="Go to your account page" />
+        <asp:Panel ID="Panel6" runat="server" BackColor="#BDDEFF" style="z-index: 1; left: 11px; top: 152px; position: absolute; height: 677px; width: 213px">
+        </asp:Panel>
+        <asp:Panel ID="Panel4" runat="server" BackColor="#FBEAD7" style="z-index: 1; left: 13px; top: -12px; position: absolute; height: 162px; width: 1245px">
+            <asp:Panel ID="Panel7" runat="server" style="z-index: 1; left: 0px; top: 0px; position: absolute; height: 27px; width: 1245px; margin-bottom: 0px;">
+            </asp:Panel>
+        </asp:Panel>
+        <asp:Label ID="Label1" runat="server" Font-Size="X-Large" style="z-index: 1; left: 248px; top: 155px; position: absolute" Text="Update Your Account Details"></asp:Label>
         </p>
     </form>
 </body>

@@ -46,6 +46,7 @@ public partial class CustomerEdit : System.Web.UI.Page
             CustomerCollection.ThisCustomer.PostCode = txtPostCode.Text;
             //updatethe record
             CustomerCollection.Update();
+            ClearTextBoxes();
             lblError.Text = "Your account has been updated.";
 
 
@@ -65,6 +66,19 @@ public partial class CustomerEdit : System.Web.UI.Page
             //update the record
             Update();
         }
+    }
+
+    void ClearTextBoxes()
+    {
+        txtFirstName.Text = string.Empty;
+        txtLAstName.Text = string.Empty;
+        txtDateOfBirth.Text = string.Empty;
+        txtEmail.Text = string.Empty;
+        txtPassword.Text = string.Empty;
+        txtHouseNo.Text = string.Empty;
+        txtStreet.Text = string.Empty;
+        txtTown.Text = string.Empty;
+        txtPostCode.Text = string.Empty;
     }
 
     void DisplayData()
