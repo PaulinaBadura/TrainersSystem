@@ -39,10 +39,10 @@
             <asp:Label ID="Label2" runat="server" Font-Italic="True" ForeColor="Black" style="z-index: 1; left: 247px; top: 200px; position: absolute" Text="Fill in the form to create new account "></asp:Label>
         </p>
         <asp:Panel ID="Panel4" runat="server" BackColor="#FBEAD7" style="z-index: 1; left: 13px; top: -12px; position: absolute; height: 154px; width: 1245px">
+            <asp:Panel ID="Panel7" runat="server" style="z-index: 1; left: 227px; top: -84px; position: absolute; height: 235px; width: 820px" BackImageUrl="~/logo.PNG">
+            </asp:Panel>
         </asp:Panel>
         <asp:Panel ID="Panel6" runat="server" BackColor="#BDDEFF" style="z-index: 1; left: 7px; top: 141px; position: absolute; height: 607px; width: 213px">
-        </asp:Panel>
-        <asp:Panel ID="Panel7" runat="server" style="z-index: 1; left: 162px; top: 32px; position: absolute; height: 87px; width: 917px">
         </asp:Panel>
     </form>
 </body>

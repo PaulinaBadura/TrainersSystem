@@ -44,16 +44,21 @@
 		<asp:TextBox ID="txtPostCode" runat="server" style="z-index: 1; left: 458px; top: 650px; position: absolute"></asp:TextBox>
 		    <asp:Label ID="Label2" runat="server" Font-Italic="True" style="z-index: 1; left: 257px; top: 203px; position: absolute" Text="Fill in the form with a corect data"></asp:Label>
 		</p>
-        <p>
-        	<asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 603px; top: 706px; position: absolute; width: 115px;" Text="OK" OnClick="btnOK_Click1" />
-    	<asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 452px; top: 706px; position: absolute; width: 115px;" Text="Cancel" OnClick="btnCancel_Click" />
-            <asp:Button ID="btnGoback" runat="server" OnClick="btnGoback_Click" style="z-index: 1; left: 910px; top: 341px; position: absolute; width: 325px;" Text="Go to the main page" />
-            <asp:Button ID="btnGoToAccount" runat="server" OnClick="btnGoToAccount_Click" style="z-index: 1; left: 910px; top: 293px; position: absolute" Text="Go to your account page" />
         <asp:Panel ID="Panel6" runat="server" BackColor="#BDDEFF" style="z-index: 1; left: 11px; top: 152px; position: absolute; height: 677px; width: 213px">
         </asp:Panel>
         <asp:Panel ID="Panel4" runat="server" BackColor="#FBEAD7" style="z-index: 1; left: 13px; top: -12px; position: absolute; height: 162px; width: 1245px">
             <asp:Panel ID="Panel7" runat="server" style="z-index: 1; left: 0px; top: 0px; position: absolute; height: 27px; width: 1245px; margin-bottom: 0px;">
             </asp:Panel>
+            <asp:Panel ID="Panel8" runat="server" style="z-index: 1; left: 0px; top: 0px; position: absolute; height: 27px; width: 1245px">
+            </asp:Panel>
+            <p>
+                <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click1" style="z-index: 1; left: 603px; top: 706px; position: absolute; width: 115px;" Text="OK" />
+                <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" style="z-index: 1; left: 452px; top: 706px; position: absolute; width: 115px;" Text="Cancel" />
+                <asp:Button ID="btnGoback" runat="server" OnClick="btnGoback_Click" style="z-index: 1; left: 910px; top: 341px; position: absolute; width: 325px;" Text="Go to the main page" />
+                <asp:Button ID="btnGoToAccount" runat="server" OnClick="btnGoToAccount_Click" style="z-index: 1; left: 910px; top: 293px; position: absolute" Text="Go to your account page" />
+                <asp:Panel ID="Panel9" runat="server" BackImageUrl="~/logo.PNG" style="z-index: 1; left: 212px; top: -71px; position: absolute; height: 229px; width: 823px">
+                </asp:Panel>
+            </p>
         </asp:Panel>
         <asp:Label ID="Label1" runat="server" Font-Size="X-Large" style="z-index: 1; left: 248px; top: 155px; position: absolute" Text="Update Your Account Details"></asp:Label>
         </p>
