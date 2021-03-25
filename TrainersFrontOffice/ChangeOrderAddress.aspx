@@ -30,7 +30,15 @@
         <asp:Button ID="btnChange" runat="server" style="z-index: 1; left: 469px; top: 523px; position: absolute; right: 230px;" Text="USE THIS ADDRESS" Font-Names="Yu Gothic" OnClick="btnChange_Click"/>
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 744px; top: 523px; position: absolute" Text="CANCEL" Font-Names="Yu Gothic" OnClick="btnCancel_Click"/>
         <asp:Label ID="lblTitle" runat="server" style="z-index: 1; left: 208px; top: 129px; position: absolute" Text="CHANGE THE DELIVERY ADDRESS" Font-Size="X-Large" ForeColor="#314367"></asp:Label>
-        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 214px; top: 625px; position: absolute"></asp:Label>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 214px; top: 625px; position: absolute" Font-Names="Yu Gothic" ></asp:Label>
+         <asp:Panel ID="Panel7" runat="server" BackColor="#A3B6DA" style="z-index: 1; left: 1355px; top: -4px; position: absolute; height: 950px; width: 308px">
+        </asp:Panel>
+        <asp:Panel ID="Panel9" runat="server"  BackColor="#A3B6DA" style="z-index: 1; left: -1px; top: 684px; position: absolute; height: 263px; width: 1370px">
+        </asp:Panel>
+        <asp:Panel ID="Panel8" runat="server" BackImageUrl="~/logo.PNG" style="z-index: 1; left: 298px; top: 682px; position: absolute; height: 263px; width: 828px">
+        </asp:Panel>
+        <asp:Button ID="btnBack" runat="server" style="z-index: 1; left: 1106px; top: 345px; position: absolute" Text="GO BACK TO MAIN PAGE" Font-Names="Yu Gothic" OnClick="btnBack_Click" />
+        
     </form>
 </body>
 </html>
