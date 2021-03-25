@@ -163,7 +163,7 @@ namespace TrainersClasses
         }//end of find function
 
 
-      
+
 
         //fuction for the public validation method
         public string Valid(string emailaddress, string deliveryTown, string dateAdded, string orderStatus, string orderValue, string customerID)
@@ -195,7 +195,8 @@ namespace TrainersClasses
                 Error = Error + "Customer ID value must be a number!  ";
             }
 
-            return Error;
+           
+        
 
             try
             {
