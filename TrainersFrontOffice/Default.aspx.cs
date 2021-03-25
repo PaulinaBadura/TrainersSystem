@@ -27,4 +27,14 @@ public partial class _Default : System.Web.UI.Page
     {
         Response.Redirect("ViewOrder.aspx");
     }
+
+    protected void btnNewCustomer_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ACustomer.aspx");
+    }
+
+    protected void btnExistingCustomer_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ExisitngCustomer.aspx");
+    }
 }

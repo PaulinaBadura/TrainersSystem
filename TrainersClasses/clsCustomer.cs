@@ -190,6 +190,7 @@ namespace TrainersClasses
 
         public string Valid(string firstName, string lastName, string dateOfBirth, string email, string password, string houseNo, string street, string town, string postCode)
         {
+            //string patern to validate email
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             //create the string variable to store the error
             String Error = "";
@@ -308,6 +309,25 @@ namespace TrainersClasses
             }
             //return any error messages 
             return Error;
+        }
+
+
+        public bool FindLatCustomerID()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            //DB.Execute("sproc_tblCustomer_SelectLAstID");
+            DB.Execute("sproc_tblCustomer_SelectLastID");
+            //if one record is found ( there should be either one or zero)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to private data member
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -180,5 +180,7 @@ namespace TrainersClasses
             //populate the array list with data table
             PopulateArray(DB);
         }
+
+        
     }
 }

@@ -52,7 +52,27 @@ namespace TrainersBackOffice
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Add();
-            
+
+
+            //dispaly  added user ID
+            //create an instance of the customer class
+            clsCustomer ACustomer = new clsCustomer();
+            //variable to store the primary key 
+            //variable to store the result of the find operation
+            Boolean Found = false;
+            //find the last  record
+            Found = ACustomer.FindLatCustomerID();
+            //if found
+            if (Found == true)
+            {
+                //display the values of the properties in the labels
+                lblID.Text = "New user's ID is: " + Convert.ToString(ACustomer.CustomerID);
+            }
+            else
+            {
+                lblID.Text = "";
+            }
+
         }
 
         void Add()
