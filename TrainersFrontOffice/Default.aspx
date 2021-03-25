@@ -9,19 +9,19 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Panel ID="Panel2" runat="server" BackImageUrl="~/logo.PNG" style="z-index: 1; left: -21px; top: 9px; position: absolute; height: 657px; width: 1276px">
+            </asp:Panel>
         </div>
-        <asp:Button ID="btnAddOrder" runat="server" style="z-index: 1; left: 16px; top: 186px; position: absolute" Text="ADD NEW ORDER" Font-Names="Yu Gothic" OnClick="btnAddOrder_Click" />
-        <asp:Button ID="btnAddTrainer" runat="server" style="z-index: 1; left: 16px; top: 304px; position: absolute; width: 304px;" Text="ADD TRAINERS INTO ORDER" Font-Names="Yu Gothic" OnClick="btnAddTrainer_Click"/>
-        <asp:Button ID="btnView" runat="server" style="z-index: 1; left: 11px; top: 250px; position: absolute; width: 259px;" Text="VIEW ORDER DETAILS" Font-Names="Yu Gothic" OnClick="btnView_Click" />
+        <asp:Button ID="btnAddOrder" runat="server" style="z-index: 1; left: 57px; top: 258px; position: absolute; bottom: 390px; width: 259px; height: 35px;" Text="ADD NEW ORDER" Font-Names="Yu Gothic" OnClick="btnAddOrder_Click" />
+        <asp:Button ID="btnAddTrainer" runat="server" style="z-index: 1; left: 57px; top: 366px; position: absolute; width: 304px;" Text="ADD TRAINERS INTO ORDER" Font-Names="Yu Gothic" OnClick="btnAddTrainer_Click"/>
+        <asp:Button ID="btnView" runat="server" style="z-index: 1; left: 57px; top: 317px; position: absolute; width: 259px; height: 35px;" Text="VIEW ORDER DETAILS" Font-Names="Yu Gothic" OnClick="btnView_Click" />
         <p>
-        <asp:Button ID="btnNewCustomer" runat="server" OnClick="btnNewCustomer_Click" style="z-index: 1; left: 632px; top: 234px; position: absolute; right: 368px; width:265px;" Text="Create new acoount" Font-Names="Yu Gothic" />
+        <asp:Button ID="btnNewCustomer" runat="server" OnClick="btnNewCustomer_Click" style="z-index: 1; left: 560px; top: 268px; position: absolute; right: 439px; width:265px;" Text="Create new acoount" Font-Names="Yu Gothic" />
         </p>
         <p>
-        <asp:Button ID="btnExistingCustomer" runat="server" OnClick="btnExistingCustomer_Click" style="z-index: 1; left: 634px; top: 290px; position: absolute; width: 265px;" Text="Manage existing account" Font-Names="Yu Gothic" />
+        <asp:Button ID="btnExistingCustomer" runat="server" OnClick="btnExistingCustomer_Click" style="z-index: 1; left: 560px; top: 319px; position: absolute; width: 265px;" Text="Manage existing account" Font-Names="Yu Gothic" />
         </p>
-        <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 675px; top: 177px; position: absolute" Text="Customer Account"></asp:Label>
-        <asp:Panel ID="Panel1" runat="server" BackColor="#FBEAD7" style="z-index: 1; left: 13px; top: 19px; position: absolute; height: 140px; width: 1245px">
-        </asp:Panel>
+        <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 600px; top: 226px; position: absolute" Text="Customer Account"></asp:Label>
     </form>
 </body>
 </html>
