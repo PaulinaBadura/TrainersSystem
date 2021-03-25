@@ -52,12 +52,14 @@
             <asp:Panel ID="Panel8" runat="server" style="z-index: 1; left: 0px; top: 0px; position: absolute; height: 27px; width: 1245px">
             </asp:Panel>
             <p>
-                <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click1" style="z-index: 1; left: 603px; top: 706px; position: absolute; width: 115px;" Text="OK" />
-                <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" style="z-index: 1; left: 452px; top: 706px; position: absolute; width: 115px;" Text="Cancel" />
-                <asp:Button ID="btnGoback" runat="server" OnClick="btnGoback_Click" style="z-index: 1; left: 910px; top: 341px; position: absolute; width: 325px;" Text="Go to the main page" />
-                <asp:Button ID="btnGoToAccount" runat="server" OnClick="btnGoToAccount_Click" style="z-index: 1; left: 910px; top: 293px; position: absolute" Text="Go to your account page" />
+                <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click1" style="z-index: 1; left: 603px; top: 706px; position: absolute; width: 115px;" Text="OK" Font-Names="Yu Gothic" />
+                <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" style="z-index: 1; left: 452px; top: 706px; position: absolute; width: 115px;" Text="Cancel" Font-Names="Yu Gothic" />
+                <asp:Button ID="btnGoback" runat="server" OnClick="btnGoback_Click" style="z-index: 1; left: 910px; top: 345px; position: absolute; width: 205px;" Text="Go to the main page" Font-Names="Yu Gothic" />
+                <asp:Button ID="btnGoToAccount" runat="server" OnClick="btnGoToAccount_Click" style="z-index: 1; left: 910px; top: 293px; position: absolute; width:205px;" Text="Go to your account page" Font-Names="Yu Gothic" />
                 <asp:Panel ID="Panel9" runat="server" BackImageUrl="~/logo.PNG" style="z-index: 1; left: 212px; top: -71px; position: absolute; height: 229px; width: 823px">
                 </asp:Panel>
+                <p>
+                </p>
             </p>
         </asp:Panel>
         <asp:Label ID="Label1" runat="server" Font-Size="X-Large" style="z-index: 1; left: 248px; top: 155px; position: absolute" Text="Update Your Account Details"></asp:Label>

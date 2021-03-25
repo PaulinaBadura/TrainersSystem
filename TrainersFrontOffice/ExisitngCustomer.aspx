@@ -12,7 +12,7 @@
             <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 430px; top: 234px; position: absolute" Text="Your CustomerID"></asp:Label>
         </div>
         <asp:TextBox ID="txtCustomerID" runat="server" style="z-index: 1; left: 626px; top: 239px; position: absolute"></asp:TextBox>
-        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 833px; top: 235px; position: absolute" Text="Find" />
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 833px; top: 235px; position: absolute" Text="Find" Font-Names="Yu Gothic" />
         <asp:Label ID="lblDetails" runat="server" style="z-index: 1; left: 278px; top: 368px; position: absolute" Text="Account Details"></asp:Label>
         <asp:Label ID="Label2" runat="server" style="z-index: 1; left: 287px; top: 415px; position: absolute" Text="ID"></asp:Label>
         <asp:Label ID="Label5" runat="server" style="z-index: 1; left: 286px; top: 489px; position: absolute; height: 30px" Text="Last Name"></asp:Label>
@@ -31,9 +31,9 @@
         </asp:Panel>
         <asp:Panel ID="Panel4" runat="server" BorderColor="#D5BAE9" BorderStyle="Ridge" BorderWidth="8px" style="z-index: 1; left: 681px; top: 366px; position: absolute; height: 149px; width: 330px">
         </asp:Panel>
-        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" style="z-index: 1; left: 228px; top: 207px; position: absolute" Text="Home" />
-        <asp:Button ID="btnEdit1" runat="server" OnClick="btnEdit1_Click" style="z-index: 1; left: 756px; top: 395px; position: absolute; width: 183px" Text="Edit Account" />
-        <asp:Button ID="btnDelete1" runat="server" OnClick="btnDelete1_Click" style="z-index: 1; left: 757px; top: 447px; position: absolute; width: 183px" Text="Delete Account" />
+        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" style="z-index: 1; left: 228px; top: 207px; position: absolute" Text="Home" Font-Names="Yu Gothic" />
+        <asp:Button ID="btnEdit1" runat="server" OnClick="btnEdit1_Click" style="z-index: 1; left: 756px; top: 395px; position: absolute; width: 183px" Text="Edit Account" Font-Names="Yu Gothic" />
+        <asp:Button ID="btnDelete1" runat="server" OnClick="btnDelete1_Click" style="z-index: 1; left: 757px; top: 447px; position: absolute; width: 183px" Text="Delete Account" Font-Names="Yu Gothic" />
         <asp:Panel ID="Panel6" runat="server" BackColor="#BDDEFF" style="z-index: 1; left: 8px; top: 201px; position: absolute; height: 607px; width: 213px">
         </asp:Panel>
     </form>

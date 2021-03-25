@@ -106,11 +106,11 @@ public partial class CustomerEdit : System.Web.UI.Page
 
     protected void btnGoback_Click(object sender, EventArgs e)
     {
-        Response.Redirect("CustomerMainPage.aspx");
+        Response.Redirect("Default.aspx");
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        Response.Redirect("ExisitngCustomer.aspx");
+        Response.Redirect("Default.aspx");
     }
 }

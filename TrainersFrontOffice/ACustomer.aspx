@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-        	<asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 590px; top: 709px; position: absolute; width: 115px;" Text="OK" OnClick="btnOK_Click1" />
+        	<asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 590px; top: 709px; position: absolute; width: 115px;" Text="OK" OnClick="btnOK_Click1" Font-Names="Yu Gothic" />
         </div>
     	<asp:TextBox ID="txtLAstName" runat="server" style="z-index: 1; left: 458px; top: 300px; position: absolute"></asp:TextBox>
 		<asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 458px; top: 250px; position: absolute"></asp:TextBox>
@@ -32,10 +32,10 @@
 		<asp:Label ID="lblError" runat="server" style="z-index: 1; left: 709px; top: 342px; position: absolute; right: -214px;"></asp:Label>
     	<asp:Panel ID="Panel5" runat="server" style="z-index: 1; left: 10px; top: 42px; position: absolute; height: 27px; width: 1245px">
         </asp:Panel>
-    	<asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 458px; top: 706px; position: absolute; width: 115px;" Text="Cancel" />
+    	<asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 458px; top: 706px; position: absolute; width: 115px;" Text="Cancel" Font-Names="Yu Gothic" />
         <p>
             <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 251px; top: 143px; position: absolute" Text="Create a new account" Font-Size="X-Large"></asp:Label>
-            <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" style="z-index: 1; left: 774px; top: 196px; position: absolute; width: 293px;" Text="Go back to the  main page" />
+            <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" style="z-index: 1; left: 774px; top: 196px; position: absolute; width: 293px;" Text="Go back to the  main page" Font-Names="Yu Gothic" />
             <asp:Label ID="Label2" runat="server" Font-Italic="True" ForeColor="Black" style="z-index: 1; left: 247px; top: 200px; position: absolute" Text="Fill in the form to create new account "></asp:Label>
         </p>
         <asp:Panel ID="Panel4" runat="server" BackColor="#FBEAD7" style="z-index: 1; left: 13px; top: -12px; position: absolute; height: 154px; width: 1245px">
@@ -44,6 +44,9 @@
         </asp:Panel>
         <asp:Panel ID="Panel6" runat="server" BackColor="#BDDEFF" style="z-index: 1; left: 7px; top: 141px; position: absolute; height: 607px; width: 213px">
         </asp:Panel>
+        <p>
+            &nbsp;</p>
+        <asp:Label ID="labelID" runat="server" style="z-index: 1; left: 711px; top: 387px; position: absolute"></asp:Label>
     </form>
 </body>
 </html>

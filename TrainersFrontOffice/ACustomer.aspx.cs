@@ -18,9 +18,27 @@ public partial class ACustomer : System.Web.UI.Page
 	protected void btnOK_Click1(object sender, EventArgs e)
 	{
         Add();
-        
-        
-	}
+
+        //dispaly  added user ID
+        //create an instance of the customer class
+        clsCustomer ACustomer = new clsCustomer();
+        //variable to store the primary key 
+        //variable to store the result of the find operation
+        Boolean Found = false;
+        //find the last  record
+        Found = ACustomer.FindLatCustomerID();
+        //if found
+        if (Found == true)
+        {
+            //display the values of the properties in the labels
+            labelID.Text = "Your user ID is: " + Convert.ToString(ACustomer.CustomerID) + ". Remeber it to manage your account in the future";
+        }
+        else
+        {
+            labelID.Text = "";
+        }
+
+    }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
@@ -77,11 +95,13 @@ public partial class ACustomer : System.Web.UI.Page
 
     protected void btnBack_Click(object sender, EventArgs e)
     {
-        Response.Redirect("CustomerMainPage.aspx");
+        Response.Redirect("Default.aspx");
     }
 
     protected void btnExistingCustomer_Click(object sender, EventArgs e)
     {
         
     }
+
+    
 }

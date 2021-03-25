@@ -54,6 +54,6 @@ public partial class CustomerDelete : System.Web.UI.Page
 
     protected void btnMainPage_Click(object sender, EventArgs e)
     {
-        Response.Redirect("CustomerMainPage.aspx");
+        Response.Redirect("Default.aspx");
     }
 }
