@@ -11,4 +11,20 @@ public partial class _Default : System.Web.UI.Page
 	{
 
 	}
+
+    protected void btnAddOrder_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AddOrder.aspx");
+
+    }
+
+    protected void btnAddTrainer_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AddOrderLine.aspx");
+    }
+
+    protected void btnView_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ViewOrder.aspx");
+    }
 }

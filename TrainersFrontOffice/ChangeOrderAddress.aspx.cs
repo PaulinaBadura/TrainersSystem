@@ -66,7 +66,7 @@ public partial class ChangeOrderAddress : System.Web.UI.Page
 
             lblError.Text = "New address was added succesfully";
 
-            Response.Redirect("AddOrder.aspx");
+           
         }
 
         else
@@ -80,5 +80,10 @@ public partial class ChangeOrderAddress : System.Web.UI.Page
     protected void btnCancel_Click(object sender, EventArgs e)
     {
         Response.Redirect("AddOrder.aspx");
+    }
+
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
     }
 }

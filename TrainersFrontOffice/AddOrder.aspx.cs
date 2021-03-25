@@ -7,7 +7,9 @@ using System.Web.UI.WebControls;
 using TrainersClasses;
 
 public partial class AddOrder : System.Web.UI.Page
+   
 {
+    
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -23,36 +25,10 @@ public partial class AddOrder : System.Web.UI.Page
     {
         //add the new record
         Add();
-       
 
         
     }
 
-    protected void btnFind_Click(object sender, EventArgs e)
-    {
-        //create instance of the class
-        clsOrder AnOrder = new clsOrder();
-        //variable to store the primary key
-        Int32 OrderNo;
-        //variable to store the result
-        Boolean Found = false;
-        //get the primary key entered by the user
-        OrderNo = Convert.ToInt32(txtOrderNo.Text);
-        //find the record
-        Found = AnOrder.Find(OrderNo);
-        //if found
-        if (Found == true)
-        {
-            //display the values in the form
-            ddlCustomerID.Text = AnOrder.EmailAddress;
-            txtDeliveryTown.Text = AnOrder.DeliveryTown;
-            txtOrderDate.Text = AnOrder.DateAdded.ToString();
-            txtOrderStatus.Text = AnOrder.OrderStatus.ToString();
-            txtOrderValue.Text = AnOrder.OrderValue.ToString();
-
-
-        }
-    }
 
     Int32 DisplayCustomerEmail()
     {
@@ -82,9 +58,10 @@ public partial class AddOrder : System.Web.UI.Page
         //create instance of the class
         clsOrderCollection NewOrder = new clsOrderCollection();
         //validate the data on the web form
-        String Error = NewOrder.ThisOrder.Valid(ddlCustomerID.Text, txtDeliveryTown.Text, txtOrderDate.Text, txtOrderStatus.Text, txtOrderValue.Text);
+        String Error = NewOrder.ThisOrder.Valid(ddlCustomerID.Text, txtDeliveryTown.Text, txtOrderDate.Text, txtOrderStatus.Text, txtOrderValue.Text, txtCustomerID.Text);
         if (Error == "")
         {
+            NewOrder.ThisOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
             //capture emailaddress
             NewOrder.ThisOrder.EmailAddress = ddlCustomerID.Text;
             //capture delivery town
@@ -98,8 +75,9 @@ public partial class AddOrder : System.Web.UI.Page
             //add the record
             NewOrder.Add();
 
-            lblError.Text = "New order was added succesfully";
+            lblError.Text = "New order was added succesfully, Your Order Number will be provided shortly, to continue with your order.";
         }
+
 
         else
         {
@@ -112,5 +90,25 @@ public partial class AddOrder : System.Web.UI.Page
     protected void BtnChange_Click(object sender, EventArgs e)
     {
         Response.Redirect("ChangeOrderAddress.aspx");
+    }
+
+
+
+
+
+
+    protected void btnContinue_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AddOrderLine.aspx");
+    }
+
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
     }
 }

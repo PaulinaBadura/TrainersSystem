@@ -83,6 +83,7 @@ namespace TrainersClasses
                 //create blank order
                 clsOrder AnOrder = new clsOrder();
                 //read the fields from the current record
+                AnOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
                 AnOrder.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
                 AnOrder.OrderStatus = Convert.ToString(DB.DataTable.Rows[0]["OrderStatus"]);
                 AnOrder.OrderValue = Convert.ToInt32(DB.DataTable.Rows[0]["OrderValue"]);
@@ -104,6 +105,7 @@ namespace TrainersClasses
             //set the primary key value of the record
             clsDataConnection DB = new clsDataConnection();
             //set parameters for the stored procedure
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
             DB.AddParameter("@OrderStatus", mThisOrder.OrderStatus);
             DB.AddParameter("@OrderValue", mThisOrder.OrderValue);
             DB.AddParameter("@DateAdded", mThisOrder.DateAdded);
