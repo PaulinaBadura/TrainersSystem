@@ -178,8 +178,10 @@ namespace TrainersClasses
             DateTime DateTemp;
             Int32 ValueTemp;
 
-            try
+
+                try
             {
+                    
                 ValueTemp = Convert.ToInt32(customerID);
                 //if the value is 0
                 if (ValueTemp == 0)
@@ -289,7 +291,26 @@ namespace TrainersClasses
 
         }//end of function for validation
 
+        public bool FindTheOrderNo()
+        {
+            //create instance of data connection class
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure to find last order nmber
+            DB.Execute("sproc_tblOrder_SelectOrderNo");
+            //if one record is found
+            if (DB.Count == 1)
+            {
+                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
+                return true;
+            }
+            else
 
-        
+            {
+                return false;
+            }
+
+        }
+
+
     }
 }

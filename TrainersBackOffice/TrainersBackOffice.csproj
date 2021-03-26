@@ -58,6 +58,12 @@
     <Compile Include="frmMainPageBackend.Designer.cs">
       <DependentUpon>frmMainPageBackend.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOrderLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrderLine.Designer.cs">
+      <DependentUpon>frmOrderLine.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmOrders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainPageBackend.resx">
       <DependentUpon>frmMainPageBackend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrderLine.resx">
+      <DependentUpon>frmOrderLine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrders.resx">
       <DependentUpon>frmOrders.cs</DependentUpon>

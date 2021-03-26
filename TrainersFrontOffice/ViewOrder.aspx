@@ -35,6 +35,7 @@
         </asp:Panel>
         <asp:Button ID="btnBack" runat="server" style="z-index: 1; left: 1106px; top: 345px; position: absolute" Text="GO BACK TO MAIN PAGE" Font-Names="Yu Gothic" OnClick="btnBack_Click" />
         <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 159px; top: 76px; position: absolute" Text="CHECK YOUR ORDER DETAILS HERE" Font-Size="X-Large" ForeColor="#314367"></asp:Label>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 86px; top: 523px; position: absolute" Font-Names="Yu Gothic"></asp:Label>
     </form>
 </body>
 </html>

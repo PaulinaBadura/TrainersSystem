@@ -73,7 +73,7 @@ namespace Trainers_Testing
             Found = AnOrder.Find(OrderNo);
 
             //check the property
-            if (AnOrder.DateAdded != Convert.ToDateTime("16/02/2021"))
+            if (AnOrder.DateAdded != Convert.ToDateTime("26/03/2021"))
             {
                 OK = false;
             }
@@ -154,7 +154,7 @@ namespace Trainers_Testing
             Found = AnOrder.Find(OrderNo);
 
             //check the property
-            if (AnOrder.OrderStatus != "Test Status")
+            if (AnOrder.OrderStatus != "shipped")
             {
                 OK = false;
             }
@@ -180,7 +180,7 @@ namespace Trainers_Testing
             Found = AnOrder.Find(OrderNo);
 
             //check the property
-            if (AnOrder.OrderValue != 1)
+            if (AnOrder.OrderValue != 100)
             {
                 OK = false;
             }

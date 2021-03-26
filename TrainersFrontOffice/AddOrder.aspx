@@ -56,6 +56,10 @@
         
        
         
+        <asp:Label ID="lblOrderNo" runat="server" style="z-index: 1; left: 894px; top: 541px; position: absolute" Font-Size="X-Large" ForeColor="#314367" ></asp:Label>
+        
+       
+        
     </form>
 </body>
 </html>
