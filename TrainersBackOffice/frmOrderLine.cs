@@ -215,5 +215,12 @@ namespace TrainersBackOffice
             //delete the record 
             AllOrders.Delete();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmMainPageBackend MainPage = new frmMainPageBackend();
+            MainPage.Show();
+            this.Hide();
+        }
     }
 }

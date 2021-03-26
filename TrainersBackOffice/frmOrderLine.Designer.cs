@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lstOrderLine = new System.Windows.Forms.ListBox();
-            this.btnPopulate = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
+            this.btnPopulate = new System.Windows.Forms.Button();
+            this.lstOrderLine = new System.Windows.Forms.ListBox();
             this.lblManage = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,6 +49,7 @@
             this.lblError1 = new System.Windows.Forms.Label();
             this.btnNo = new System.Windows.Forms.Button();
             this.btnYes = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -65,14 +66,23 @@
             this.panel1.Size = new System.Drawing.Size(355, 360);
             this.panel1.TabIndex = 0;
             // 
-            // lstOrderLine
+            // btnEdit
             // 
-            this.lstOrderLine.FormattingEnabled = true;
-            this.lstOrderLine.ItemHeight = 16;
-            this.lstOrderLine.Location = new System.Drawing.Point(19, 32);
-            this.lstOrderLine.Name = "lstOrderLine";
-            this.lstOrderLine.Size = new System.Drawing.Size(206, 260);
-            this.lstOrderLine.TabIndex = 0;
+            this.btnEdit.Location = new System.Drawing.Point(231, 298);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(121, 44);
+            this.btnEdit.TabIndex = 5;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(19, 9);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 17);
+            this.lblError.TabIndex = 2;
             // 
             // btnPopulate
             // 
@@ -84,13 +94,14 @@
             this.btnPopulate.UseVisualStyleBackColor = true;
             this.btnPopulate.Click += new System.EventHandler(this.btnPopulate_Click);
             // 
-            // lblError
+            // lstOrderLine
             // 
-            this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(19, 9);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 17);
-            this.lblError.TabIndex = 2;
+            this.lstOrderLine.FormattingEnabled = true;
+            this.lstOrderLine.ItemHeight = 16;
+            this.lstOrderLine.Location = new System.Drawing.Point(19, 32);
+            this.lstOrderLine.Name = "lstOrderLine";
+            this.lstOrderLine.Size = new System.Drawing.Size(206, 260);
+            this.lstOrderLine.TabIndex = 0;
             // 
             // lblManage
             // 
@@ -142,16 +153,6 @@
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(231, 298);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(121, 44);
-            this.btnEdit.TabIndex = 5;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // label1
             // 
@@ -245,11 +246,22 @@
             this.btnYes.UseVisualStyleBackColor = true;
             this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(39, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(188, 34);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Back to main page";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmOrderLine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.lblError1);
@@ -298,5 +310,6 @@
         private System.Windows.Forms.Label lblError1;
         private System.Windows.Forms.Button btnNo;
         private System.Windows.Forms.Button btnYes;
+        private System.Windows.Forms.Button button1;
     }
 }

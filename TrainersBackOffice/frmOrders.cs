@@ -360,6 +360,13 @@ namespace TrainersBackOffice
             return Count;
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmMainPageBackend MainPage = new frmMainPageBackend();
+            MainPage.Show();
+            this.Hide();
+        }
     }
     }
     

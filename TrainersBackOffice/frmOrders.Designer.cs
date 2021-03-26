@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFilterStatus = new System.Windows.Forms.Button();
+            this.txtOrderStatusFilter = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnFilterCustomerID = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCustomerIDFilter = new System.Windows.Forms.TextBox();
@@ -59,9 +62,7 @@
             this.lblError1 = new System.Windows.Forms.Label();
             this.btnNo = new System.Windows.Forms.Button();
             this.btnYes = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtOrderStatusFilter = new System.Windows.Forms.TextBox();
-            this.btnFilterStatus = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +87,32 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(388, 380);
             this.panel1.TabIndex = 0;
+            // 
+            // btnFilterStatus
+            // 
+            this.btnFilterStatus.Location = new System.Drawing.Point(239, 287);
+            this.btnFilterStatus.Name = "btnFilterStatus";
+            this.btnFilterStatus.Size = new System.Drawing.Size(75, 23);
+            this.btnFilterStatus.TabIndex = 13;
+            this.btnFilterStatus.Text = "Filter";
+            this.btnFilterStatus.UseVisualStyleBackColor = true;
+            this.btnFilterStatus.Click += new System.EventHandler(this.btnFilterStatus_Click);
+            // 
+            // txtOrderStatusFilter
+            // 
+            this.txtOrderStatusFilter.Location = new System.Drawing.Point(207, 254);
+            this.txtOrderStatusFilter.Name = "txtOrderStatusFilter";
+            this.txtOrderStatusFilter.Size = new System.Drawing.Size(161, 22);
+            this.txtOrderStatusFilter.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(204, 226);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(151, 17);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Filter by Order Status: ";
             // 
             // btnFilterCustomerID
             // 
@@ -351,37 +378,22 @@
             this.btnYes.UseVisualStyleBackColor = true;
             this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
-            // label2
+            // button1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(204, 226);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 17);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Filter by Order Status: ";
-            // 
-            // txtOrderStatusFilter
-            // 
-            this.txtOrderStatusFilter.Location = new System.Drawing.Point(207, 254);
-            this.txtOrderStatusFilter.Name = "txtOrderStatusFilter";
-            this.txtOrderStatusFilter.Size = new System.Drawing.Size(161, 22);
-            this.txtOrderStatusFilter.TabIndex = 12;
-            // 
-            // btnFilterStatus
-            // 
-            this.btnFilterStatus.Location = new System.Drawing.Point(239, 287);
-            this.btnFilterStatus.Name = "btnFilterStatus";
-            this.btnFilterStatus.Size = new System.Drawing.Size(75, 23);
-            this.btnFilterStatus.TabIndex = 13;
-            this.btnFilterStatus.Text = "Filter";
-            this.btnFilterStatus.UseVisualStyleBackColor = true;
-            this.btnFilterStatus.Click += new System.EventHandler(this.btnFilterStatus_Click);
+            this.button1.Location = new System.Drawing.Point(52, 11);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(188, 34);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Back to main page";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.lblError1);
@@ -446,5 +458,6 @@
         private System.Windows.Forms.Button btnFilterStatus;
         private System.Windows.Forms.TextBox txtOrderStatusFilter;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }
