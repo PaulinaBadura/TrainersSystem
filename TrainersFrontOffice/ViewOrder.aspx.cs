@@ -39,10 +39,15 @@ public partial class ViewOrder : System.Web.UI.Page
 
 
             }
-        }
+           else
+              {
+            lblError.Text = "Order number not found";
+              }
+    }
+    
 
 
-    protected void btnBack_Click(object sender, EventArgs e)
+protected void btnBack_Click(object sender, EventArgs e)
     {
         Response.Redirect("Default.aspx");
     }

@@ -40,5 +40,12 @@ namespace TrainersBackOffice
         {
 
         }
+
+        private void btnOrderLine_Click(object sender, EventArgs e)
+        {
+            frmOrderLine OrderLine = new frmOrderLine();
+            OrderLine.Show();
+            this.Hide();
+        }
     }
 }

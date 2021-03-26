@@ -100,5 +100,34 @@ namespace TrainersClasses
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblOrderLine_Insert");
         }
+
+        //function for updating a record
+        public void Update()
+        {
+            //update an existing record based on the values of thisOrder
+
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderNo", mThisOrderLine.OrderNo);
+            DB.AddParameter("@OrderLineID", mThisOrderLine.OrderLineID);
+            DB.AddParameter("@TrainerID", mThisOrderLine.TrainerID);
+            DB.AddParameter("@Price", mThisOrderLine.Price);
+            DB.AddParameter("@Quantity", mThisOrderLine.OrderQty);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrderLine_Update");
+        }
+
+        //function for deleting a record
+        public void Delete()
+        {
+            //deletes record based on the value value of mThisOrder
+            //connect to database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderLineID", mThisOrderLine.OrderLineID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrderLine_Delete");
+        }
     }
 }

@@ -25,6 +25,23 @@ public partial class AddOrder : System.Web.UI.Page
     {
         //add the new record
         Add();
+        //create instance of the class
+        clsOrder AnOrder = new clsOrder();
+        //variable to store result
+        Boolean Found = false;
+        Found = AnOrder.FindTheOrderNo();
+        //if the operation is successful
+        if (Found == true)
+        {
+            lblOrderNo.Text = "Your Order Number is: " + Convert.ToString(AnOrder.OrderNo);
+
+        }
+
+        else
+        {
+            lblOrderNo.Text = "";
+        }
+
 
         
     }
@@ -78,12 +95,13 @@ public partial class AddOrder : System.Web.UI.Page
             lblError.Text = "New order was added succesfully, Your Order Number will be provided shortly, to continue with your order.";
         }
 
+        
 
         else
         {
             //report error
 
-            lblError.Text = "There were problems with the data entered: " + Error;
+            lblError.Text =  Error;
         }
     }
 
