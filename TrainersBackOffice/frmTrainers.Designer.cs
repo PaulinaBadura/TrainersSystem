@@ -50,17 +50,16 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.tblTrainersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new TrainersBackOffice.DataSet1();
-            this.tblTrainersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblTrainersTableAdapter = new TrainersBackOffice.DataSet1TableAdapters.tblTrainersTableAdapter();
+            
+            
+            
+            
             this.txtSize = new System.Windows.Forms.TextBox();
             this.lblError = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTrainersBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTrainersBindingSource)).BeginInit();
+           
+            
             this.SuspendLayout();
             // 
             // panel4
@@ -258,25 +257,8 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // tblTrainersBindingSource1
-            // 
-            this.tblTrainersBindingSource1.DataMember = "tblTrainers";
-            this.tblTrainersBindingSource1.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblTrainersBindingSource
-            // 
-            this.tblTrainersBindingSource.DataMember = "tblTrainers";
-            this.tblTrainersBindingSource.DataSource = this.dataSet1;
-            // 
-            // tblTrainersTableAdapter
-            // 
-            this.tblTrainersTableAdapter.ClearBeforeFill = true;
-            // 
+            
+            
             // txtSize
             // 
             this.txtSize.Location = new System.Drawing.Point(110, 257);
@@ -319,9 +301,7 @@
             this.Text = "Trainers Management ";
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tblTrainersBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTrainersBindingSource)).EndInit();
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,9 +329,9 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
-        private DataSet1 dataSet1;
+        
         private System.Windows.Forms.BindingSource tblTrainersBindingSource;
-        private DataSet1TableAdapters.tblTrainersTableAdapter tblTrainersTableAdapter;
+        
         private System.Windows.Forms.BindingSource tblTrainersBindingSource1;
         private System.Windows.Forms.TextBox txtSize;
         private System.Windows.Forms.Label lblError;
