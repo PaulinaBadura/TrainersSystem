@@ -47,12 +47,5 @@ namespace TrainersBackOffice
             OrderLine.Show();
             this.Hide();
         }
-
-        private void btnTrainers_Click(object sender, EventArgs e)
-        {
-            frmTrainers Trainers = new frmTrainers();
-            Trainers.Show();
-            this.Hide();
-        }
     }
 }
