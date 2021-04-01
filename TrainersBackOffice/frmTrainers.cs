@@ -80,5 +80,43 @@ namespace TrainersBackOffice
             MainPage.Show();
             this.Hide();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //var to to store the primary key value of the record to be deleted
+            Int32 TrainerID;
+            //if a record has been selected from the list
+            if (lstTrainers.SelectedIndex != -1)
+            {
+                //get the primary key value of the record to delete
+                TrainerID = Convert.ToInt32(lstTrainers.SelectedValue);
+                MessageBox.Show("Are you sure you want to delete this trainers? ", "Trainers list", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            }
+            else
+            {
+                //Error message
+                MessageBox.Show("Please select a record from the list first. ", "Trainers list", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnPopulate_Click(object sender, EventArgs e)
+        {
+            //call the display trainers method
+            lblError.Text = DisplayTrainers() + " trainers found";
+        }
+
+        Int32 DisplayTrainers()
+        {
+            //create instamce of the Order Collection
+            clsTrainersCollection Trainers = new clsTrainersCollection();
+            //set the data source to the list of orders in the collection
+            lstTrainers.DataSource = Trainers.TrainersList;
+            //set the name of primary key
+            lstTrainers.ValueMember = "TrainerID";
+            //set the data field to display
+            lstTrainers.DisplayMember = "TrainerID";
+            return Trainers.Count;
+        }
+
     }
 }

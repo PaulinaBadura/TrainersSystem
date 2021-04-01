@@ -120,5 +120,37 @@ namespace Trainers_Testing
             //test to see that the two values are the same
             Assert.AreEqual(AllTrainers.ThisTrainer, TestItem);
         }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class 
+            clsTrainersCollection AllTrainers = new clsTrainersCollection();
+            //create the item of test data
+            clsTrainers TestItem = new clsTrainers();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set the properties of the test object
+            TestItem.Brand = "Adidas";
+            TestItem.Name = "Originals";
+            TestItem.Colour = "White";
+            TestItem.Size = 2;
+            TestItem.Price = 9.89M;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.InStock = true;
+            //set ThisTrainer to the test data
+            AllTrainers.ThisTrainer = TestItem;
+            //add the record
+            PrimaryKey = AllTrainers.Add();
+            //set the primary key of the test data
+            TestItem.TrainerID = PrimaryKey;
+            //find the record
+            AllTrainers.ThisTrainer.Find(PrimaryKey);
+            //delete the record
+            AllTrainers.Delete();
+            //find the record
+            Boolean Found = AllTrainers.ThisTrainer.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
     }
 }

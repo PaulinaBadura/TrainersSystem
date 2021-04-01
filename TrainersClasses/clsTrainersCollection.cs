@@ -103,6 +103,16 @@ namespace TrainersClasses
             //execute the query returning the primary key of the new record
             return DB.Execute("sproc_tblTrainers_Insert");
         }
-       
+
+        public void Delete()
+        {
+            //delete the record pointed to by thisTrainer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@TrainerID", mThisTrainer.TrainerID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblTrainers_Delete");
+        }
     }
 }

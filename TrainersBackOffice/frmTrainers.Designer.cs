@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrainers));
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
@@ -50,16 +49,25 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            
-            
-            
-            
             this.txtSize = new System.Windows.Forms.TextBox();
             this.lblError = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFilterStatus = new System.Windows.Forms.Button();
+            this.txtOrderStatusFilter = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnFilterCustomerID = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCustomerIDFilter = new System.Windows.Forms.TextBox();
+            this.btnFiterID = new System.Windows.Forms.Button();
+            this.lblID = new System.Windows.Forms.Label();
+            this.txtFilterID = new System.Windows.Forms.TextBox();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnPopulate = new System.Windows.Forms.Button();
+            this.lstTrainers = new System.Windows.Forms.ListBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-           
-            
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -235,6 +243,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -257,8 +266,6 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            
-            
             // txtSize
             // 
             this.txtSize.Location = new System.Drawing.Point(110, 257);
@@ -274,11 +281,157 @@
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 59;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.btnFilterStatus);
+            this.panel1.Controls.Add(this.txtOrderStatusFilter);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnFilterCustomerID);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtCustomerIDFilter);
+            this.panel1.Controls.Add(this.btnFiterID);
+            this.panel1.Controls.Add(this.lblID);
+            this.panel1.Controls.Add(this.txtFilterID);
+            this.panel1.Controls.Add(this.btnEdit);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.btnPopulate);
+            this.panel1.Controls.Add(this.lstTrainers);
+            this.panel1.Location = new System.Drawing.Point(304, 141);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(291, 309);
+            this.panel1.TabIndex = 60;
+            // 
+            // btnFilterStatus
+            // 
+            this.btnFilterStatus.Location = new System.Drawing.Point(179, 233);
+            this.btnFilterStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFilterStatus.Name = "btnFilterStatus";
+            this.btnFilterStatus.Size = new System.Drawing.Size(56, 19);
+            this.btnFilterStatus.TabIndex = 13;
+            this.btnFilterStatus.Text = "Filter";
+            this.btnFilterStatus.UseVisualStyleBackColor = true;
+            // 
+            // txtOrderStatusFilter
+            // 
+            this.txtOrderStatusFilter.Location = new System.Drawing.Point(155, 206);
+            this.txtOrderStatusFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.txtOrderStatusFilter.Name = "txtOrderStatusFilter";
+            this.txtOrderStatusFilter.Size = new System.Drawing.Size(122, 20);
+            this.txtOrderStatusFilter.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(153, 184);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Filter by Order Status: ";
+            // 
+            // btnFilterCustomerID
+            // 
+            this.btnFilterCustomerID.Location = new System.Drawing.Point(179, 154);
+            this.btnFilterCustomerID.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFilterCustomerID.Name = "btnFilterCustomerID";
+            this.btnFilterCustomerID.Size = new System.Drawing.Size(56, 19);
+            this.btnFilterCustomerID.TabIndex = 10;
+            this.btnFilterCustomerID.Text = "Filter";
+            this.btnFilterCustomerID.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(155, 112);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Filter by Customer ID:";
+            // 
+            // txtCustomerIDFilter
+            // 
+            this.txtCustomerIDFilter.Location = new System.Drawing.Point(155, 131);
+            this.txtCustomerIDFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCustomerIDFilter.Name = "txtCustomerIDFilter";
+            this.txtCustomerIDFilter.Size = new System.Drawing.Size(122, 20);
+            this.txtCustomerIDFilter.TabIndex = 8;
+            // 
+            // btnFiterID
+            // 
+            this.btnFiterID.Location = new System.Drawing.Point(179, 82);
+            this.btnFiterID.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFiterID.Name = "btnFiterID";
+            this.btnFiterID.Size = new System.Drawing.Size(56, 19);
+            this.btnFiterID.TabIndex = 7;
+            this.btnFiterID.Text = "Filter";
+            this.btnFiterID.UseVisualStyleBackColor = true;
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(155, 36);
+            this.lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(115, 13);
+            this.lblID.TabIndex = 6;
+            this.lblID.Text = "Filter by Order Number:";
+            // 
+            // txtFilterID
+            // 
+            this.txtFilterID.Location = new System.Drawing.Point(155, 58);
+            this.txtFilterID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFilterID.Name = "txtFilterID";
+            this.txtFilterID.Size = new System.Drawing.Size(122, 20);
+            this.txtFilterID.TabIndex = 5;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(146, 265);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(112, 34);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 8);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 3;
+            // 
+            // btnPopulate
+            // 
+            this.btnPopulate.Location = new System.Drawing.Point(16, 265);
+            this.btnPopulate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPopulate.Name = "btnPopulate";
+            this.btnPopulate.Size = new System.Drawing.Size(112, 34);
+            this.btnPopulate.TabIndex = 2;
+            this.btnPopulate.Text = "Populate";
+            this.btnPopulate.UseVisualStyleBackColor = true;
+            this.btnPopulate.Click += new System.EventHandler(this.btnPopulate_Click);
+            // 
+            // lstTrainers
+            // 
+            this.lstTrainers.FormattingEnabled = true;
+            this.lstTrainers.Location = new System.Drawing.Point(2, 36);
+            this.lstTrainers.Margin = new System.Windows.Forms.Padding(2);
+            this.lstTrainers.Name = "lstTrainers";
+            this.lstTrainers.Size = new System.Drawing.Size(133, 225);
+            this.lstTrainers.TabIndex = 1;
+            // 
             // frmTrainers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 461);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.txtSize);
             this.Controls.Add(this.panel2);
@@ -301,7 +454,8 @@
             this.Text = "Trainers Management ";
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,5 +489,19 @@
         private System.Windows.Forms.BindingSource tblTrainersBindingSource1;
         private System.Windows.Forms.TextBox txtSize;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnFilterStatus;
+        private System.Windows.Forms.TextBox txtOrderStatusFilter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnFilterCustomerID;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCustomerIDFilter;
+        private System.Windows.Forms.Button btnFiterID;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.TextBox txtFilterID;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnPopulate;
+        private System.Windows.Forms.ListBox lstTrainers;
     }
 }
