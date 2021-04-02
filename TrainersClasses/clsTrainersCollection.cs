@@ -49,7 +49,7 @@ namespace TrainersClasses
                 ATrainer.Colour = Convert.ToString(DB.DataTable.Rows[Index]["Colour"]);
                 ATrainer.Size = Convert.ToInt32(DB.DataTable.Rows[Index]["Size"]);
                 ATrainer.Price = Convert.ToDecimal(DB.DataTable.Rows[Index]["Price"]);
-                ATrainer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
+                ATrainer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
                 ATrainer.InStock = Convert.ToBoolean(DB.DataTable.Rows[Index]["InStock"]);
                 //add the record to the private data member
                 mTrainersList.Add(ATrainer);
@@ -103,6 +103,16 @@ namespace TrainersClasses
             //execute the query returning the primary key of the new record
             return DB.Execute("sproc_tblTrainers_Insert");
         }
-       
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisTrainer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@TrainerID", mThisTrainer.TrainerID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblTrainers_Delete");
+        }
     }
 }
