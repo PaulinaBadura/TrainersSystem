@@ -33,9 +33,9 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.lblManage = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.lblDateAdded = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.txtDateAdded = new System.Windows.Forms.TextBox();
@@ -118,17 +118,6 @@
             this.panel2.Size = new System.Drawing.Size(151, 35);
             this.panel2.TabIndex = 54;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(93, 212);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(66, 22);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "DELETE";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(80, 3);
@@ -149,6 +138,17 @@
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(93, 212);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(66, 22);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lblDateAdded
             // 
@@ -384,6 +384,7 @@
             this.btnEdit.TabIndex = 62;
             this.btnEdit.Text = "EDIT";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // lblFilterSize
             // 
