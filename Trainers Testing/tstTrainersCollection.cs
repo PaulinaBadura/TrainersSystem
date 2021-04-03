@@ -147,10 +147,51 @@ namespace Trainers_Testing
             AllTrainers.ThisTrainer.Find(PrimaryKey);
             //delete the record
             AllTrainers.Delete();
-            //find the record
+            //now find the record
             Boolean Found = AllTrainers.ThisTrainer.Find(PrimaryKey);
             //test to see that the record was not found
             Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class 
+            clsTrainersCollection AllTrainers = new clsTrainersCollection();
+            //create the item of test data
+            clsTrainers TestItem = new clsTrainers();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set the properties of the test object
+            TestItem.Brand = "Adidas";
+            TestItem.Name = "Originals";
+            TestItem.Colour = "White";
+            TestItem.Size = 2;
+            TestItem.Price = 9.89M;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.InStock = true;
+            //set ThisTrainer to the test data
+            AllTrainers.ThisTrainer = TestItem;
+            //add the record
+            PrimaryKey = AllTrainers.Add();
+            //set the primary key of the test data
+            TestItem.TrainerID = PrimaryKey;
+            //modify the test data
+            TestItem.Brand = "Nike";
+            TestItem.Name = "AirMax";
+            TestItem.Colour = "Black";
+            TestItem.Size = 7;
+            TestItem.Price = 75.99M;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.InStock = false;
+            //set the record based on the new test data
+            AllTrainers.ThisTrainer = TestItem;
+            //update the record
+            AllTrainers.Update();
+            //find the record
+            AllTrainers.ThisTrainer.Find(PrimaryKey);
+            //test to see ThisTrainer matches the test data
+            Assert.AreEqual(AllTrainers.ThisTrainer, TestItem);
         }
     }
 }

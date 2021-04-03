@@ -30,4 +30,9 @@ public partial class TrainerDefault : System.Web.UI.Page
         //bind the data to the list
         lstTrainers.DataBind();
     }
+
+    protected void lstTrainers_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }

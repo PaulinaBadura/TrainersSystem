@@ -48,7 +48,7 @@ namespace TrainersClasses
                 ATrainer.Name = Convert.ToString(DB.DataTable.Rows[Index]["Name"]);
                 ATrainer.Colour = Convert.ToString(DB.DataTable.Rows[Index]["Colour"]);
                 ATrainer.Size = Convert.ToInt32(DB.DataTable.Rows[Index]["Size"]);
-                ATrainer.Price = Convert.ToDecimal(DB.DataTable.Rows[Index]["Price"]);
+                ATrainer.Price = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
                 ATrainer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
                 ATrainer.InStock = Convert.ToBoolean(DB.DataTable.Rows[Index]["InStock"]);
                 //add the record to the private data member
@@ -113,6 +113,24 @@ namespace TrainersClasses
             DB.AddParameter("@TrainerID", mThisTrainer.TrainerID);
             //execute the stored procedure
             DB.Execute("sproc_tblTrainers_Delete");
+        }
+
+        public void Update()
+        {
+            //update an existing record based on the values of thistRAINER
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@TrainerID", mThisTrainer.TrainerID);
+            DB.AddParameter("@Brand", mThisTrainer.Brand);
+            DB.AddParameter("@Name", mThisTrainer.Name);
+            DB.AddParameter("@Colour", mThisTrainer.Colour);
+            DB.AddParameter("@Size", mThisTrainer.Size);
+            DB.AddParameter("@Price", mThisTrainer.Price);
+            DB.AddParameter("@DateAdded", mThisTrainer.DateAdded);
+            DB.AddParameter("@InStock", mThisTrainer.InStock);
+            //execute the stored procedure
+            DB.Execute("sproc_tblTrainers_Update");
         }
     }
 }
