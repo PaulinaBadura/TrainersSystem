@@ -13,6 +13,7 @@ namespace TrainersBackOffice
 {
     public partial class frmTrainers : Form
     {
+        Int32 TrainerID;
         
         public frmTrainers()
         {
@@ -30,6 +31,7 @@ namespace TrainersBackOffice
             this.Hide();
         }
 
+        //method to display list of trainers
         Int32 DisplayTrainers()
         {
             //create an instance of the trainers collection
@@ -91,7 +93,6 @@ namespace TrainersBackOffice
             txtSize.Text = string.Empty;
             txtPrice.Text = string.Empty;
             txtDateAdded.Text = string.Empty;
-            chkInStock.Text = string.Empty;
 
         }
 
@@ -99,7 +100,7 @@ namespace TrainersBackOffice
         private void btnDelete_Click(object sender, EventArgs e)
         {
             //var to to store the primary key value of the record to be deleted
-            Int32 TrainerID;
+            //Int32 TrainerID;
             //if a record has been selected from the list
             if (lstTrainers.SelectedIndex != -1)
             {
@@ -117,9 +118,10 @@ namespace TrainersBackOffice
             }
         }
 
+        //function to delete the selected record
         void DeleteTrainers()
         {
-            Int32 TrainerID;
+            //Int32 TrainerID;
             //function to delete selected record
             //create a new instance of the trainers collection
             clsTrainersCollection AllTrainers = new clsTrainersCollection();
@@ -163,7 +165,7 @@ namespace TrainersBackOffice
         private void btnEdit_Click(object sender, EventArgs e)
         {
             //var to store the primary key value of the record to be edited
-            Int32 TrainerID;
+            //Int32 TrainerID;
             //if a record has been selected from the list 
             if (lstTrainers.SelectedIndex != -1)
             {
@@ -172,7 +174,7 @@ namespace TrainersBackOffice
                 //show the update button
                 btnUpdate.Visible = true;
                 //get the primary key value of the record to edit
-                TrainerID = Convert.ToInt32(lstTrainers.SelectedValue);
+                TrainerID = Convert.ToInt32(lstTrainers.SelectedIndex);
                 //find the record to updae
                 clsTrainersCollection AllTrainers = new clsTrainersCollection();
                 AllTrainers.ThisTrainer.Find(TrainerID);
@@ -193,7 +195,7 @@ namespace TrainersBackOffice
         }
         void Update()
         {
-            Int32 TrainerID;
+            //Int32 TrainerID;
             TrainerID = Convert.ToInt32(lstTrainers.SelectedValue);
             //create an instance of the collection class
             clsTrainersCollection TrainersCollection = new clsTrainersCollection();
@@ -226,6 +228,63 @@ namespace TrainersBackOffice
                 lblConfirmation.Text = "There were problems with the data entered " + Error;
             }
         }
-        
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //update method called to update data
+            Update();
+        }
+
+        private void btnFilterBrand_Click(object sender, EventArgs e)
+        {
+            //if brand filter is provided
+            if (txtBrand.Text != "")
+            {
+                //declare var to store the record count
+                Int32 Count;
+                //assign the results of the DisplayTrainers function to the record count var
+                Count = DisplayTrainersByBrand(txtFilterBrand.Text);
+                //display the number of records found
+                lblError.Text = Count + " records found";
+            }
+            else
+            {
+                //display an error
+                lblFilterError.Text = "Provide a valid filter";
+            }
+        }
+
+        Int32 DisplayTrainersByBrand(string BrandFilter)
+        {
+            //function to display trainers based on brand filter
+            //new instance of the clsCustomerCollection
+            clsTrainersCollection AllTrainers = new clsTrainersCollection();
+            //var to store the count of the record
+            Int32 Count;
+            //var to store brand
+            string Brand;
+            //var to store the index
+            Int32 Index = 0;
+            //clear the list of any existing items
+            //lstCustomers.Items.Clear();
+            //call the filter by brand method
+            AllTrainers.ReportByBrand(BrandFilter);
+            //get the count of records found
+            Count = AllTrainers.Count;
+            
+            while (Index < Count)
+            {
+                Brand = Convert.ToString(AllTrainers.TrainersList[Index].Brand);
+                //set up a new object of class list item
+                lstTrainers.DataSource = AllTrainers.TrainersList;
+                //set the text to be displayed
+                lstTrainers.DisplayMember = "AllDetails";
+                //increment the index
+                Index++;
+            }
+            //return the number of records found
+            return Count;
+
+        }
     }
 }

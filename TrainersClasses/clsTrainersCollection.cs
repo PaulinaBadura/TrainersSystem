@@ -28,34 +28,12 @@ namespace TrainersClasses
 
         public clsTrainersCollection()
         {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count 
-            Int32 RecordCount = 0;
-            //object for data connection 
+            //object for data connection
             clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure 
+            //execute the stored procedure
             DB.Execute("sproc_tblTrainers_SelectAll");
-            //get the count of records 
-            RecordCount = DB.Count;
-            //While there are records to process 
-            while (Index < RecordCount)
-            {
-                //create a blank trainers 
-                clsTrainers ATrainer = new clsTrainers();
-                //read in the fields from the current record 
-                ATrainer.Brand = Convert.ToString(DB.DataTable.Rows[Index]["Brand"]);
-                ATrainer.Name = Convert.ToString(DB.DataTable.Rows[Index]["Name"]);
-                ATrainer.Colour = Convert.ToString(DB.DataTable.Rows[Index]["Colour"]);
-                ATrainer.Size = Convert.ToInt32(DB.DataTable.Rows[Index]["Size"]);
-                ATrainer.Price = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
-                ATrainer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
-                ATrainer.InStock = Convert.ToBoolean(DB.DataTable.Rows[Index]["InStock"]);
-                //add the record to the private data member
-                mTrainersList.Add(ATrainer);
-                //point to the next record 
-                Index++;
-            }
+            //populate the array list with the data table
+            PopulateArray(DB);
         }
     
   
@@ -86,7 +64,7 @@ namespace TrainersClasses
 
             }
         }
-
+       
         public int Add()
         {
             //adds a new record to the database based on the values of mThisTrainer
@@ -117,7 +95,7 @@ namespace TrainersClasses
 
         public void Update()
         {
-            //update an existing record based on the values of thistRAINER
+            //update an existing record based on the values of thisTrainer
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
@@ -131,6 +109,51 @@ namespace TrainersClasses
             DB.AddParameter("@InStock", mThisTrainer.InStock);
             //execute the stored procedure
             DB.Execute("sproc_tblTrainers_Update");
+        }
+
+        public void ReportByBrand(string Brand)
+        {
+            //filters the record based on a full or partial brand
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the Brand parameter to the database
+            DB.AddParameter("@Brand", Brand);
+            //execute the stored procedure
+            DB.Execute("sproc_tblTrainers_FilterByBrand");
+            //populate the array list with the data table
+            PopulateArray(DB);          
+         
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the data table in the parameter DB
+            //var for the index
+            Int32 Index = 0;
+            //var to store the record count 
+            Int32 RecordCount;
+            //get the count of records 
+            RecordCount = DB.Count;
+            //clear the private array list
+            mTrainersList = new List<clsTrainers>();
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank trainers 
+                clsTrainers ATrainer = new clsTrainers();
+                //read in the fields from the current record 
+                ATrainer.Brand = Convert.ToString(DB.DataTable.Rows[Index]["Brand"]);
+                ATrainer.Name = Convert.ToString(DB.DataTable.Rows[Index]["Name"]);
+                ATrainer.Colour = Convert.ToString(DB.DataTable.Rows[Index]["Colour"]);
+                ATrainer.Size = Convert.ToInt32(DB.DataTable.Rows[Index]["Size"]);
+                ATrainer.Price = Convert.ToDecimal(DB.DataTable.Rows[Index]["Price"]);
+                ATrainer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                ATrainer.InStock = Convert.ToBoolean(DB.DataTable.Rows[Index]["InStock"]);
+                //add the record to the private data member
+                mTrainersList.Add(ATrainer);
+                //point to the next record 
+                Index++;
+            }
         }
     }
 }

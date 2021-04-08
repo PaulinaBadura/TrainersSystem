@@ -51,6 +51,7 @@
             this.chkInStock = new System.Windows.Forms.CheckBox();
             this.txtSize = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblFilterError = new System.Windows.Forms.Label();
             this.lblConfirmation = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.btnNo = new System.Windows.Forms.Button();
@@ -109,7 +110,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Lavender;
+            this.panel2.BackColor = System.Drawing.Color.Honeydew;
             this.panel2.Controls.Add(this.btnUpdate);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Location = new System.Drawing.Point(59, 390);
@@ -127,6 +128,7 @@
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -279,7 +281,8 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackColor = System.Drawing.Color.PowderBlue;
+            this.panel1.Controls.Add(this.lblFilterError);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.lblConfirmation);
             this.panel1.Controls.Add(this.lblError);
@@ -303,6 +306,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(370, 309);
             this.panel1.TabIndex = 61;
+            // 
+            // lblFilterError
+            // 
+            this.lblFilterError.AutoSize = true;
+            this.lblFilterError.Location = new System.Drawing.Point(240, 255);
+            this.lblFilterError.Name = "lblFilterError";
+            this.lblFilterError.Size = new System.Drawing.Size(0, 13);
+            this.lblFilterError.TabIndex = 68;
             // 
             // lblConfirmation
             // 
@@ -433,6 +444,7 @@
             this.btnFilterBrand.TabIndex = 7;
             this.btnFilterBrand.Text = "Filter";
             this.btnFilterBrand.UseVisualStyleBackColor = true;
+            this.btnFilterBrand.Click += new System.EventHandler(this.btnFilterBrand_Click);
             // 
             // lblFilterBrand
             // 
@@ -545,5 +557,6 @@
         private System.Windows.Forms.Button btnNo;
         private System.Windows.Forms.Button btnYes;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Label lblFilterError;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace TrainersClasses
 {
     public class clsTrainers
@@ -131,12 +132,12 @@ namespace TrainersClasses
             {
                 //copy the data from the database to the private data members
                 mTrainerID = Convert.ToInt32(DB.DataTable.Rows[0]["TrainerID"]);
-                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
                 mBrand = Convert.ToString(DB.DataTable.Rows[0]["Brand"]);
                 mName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
                 mColour = Convert.ToString(DB.DataTable.Rows[0]["Colour"]);
                 mSize = Convert.ToInt32(DB.DataTable.Rows[0]["Size"]);
                 mPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
                 mInStock = Convert.ToBoolean(DB.DataTable.Rows[0]["InStock"]);
                 //return that everything worked fine
                 return true;
@@ -195,6 +196,45 @@ namespace TrainersClasses
             }
             try
             {
+                SizeTemp = Convert.ToInt32(size);
+                if (SizeTemp == 0)
+                {
+                    //record the error
+                    Error = Error + "The size cannot be blank : ";
+                }
+                if (SizeTemp > 12)
+                {
+                    //record the error
+                    Error = Error + "The size cannot be greater than 12 : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The value entered is not a number : ";
+            }
+                       
+            try
+            {
+                PriceTemp = Convert.ToDecimal(price);
+                if (PriceTemp < 0.01M)
+                {
+                    //record the error
+                    Error = Error + "The price cannot be a negative or 0 : ";
+                }
+                if (PriceTemp > 500.00M)
+                {
+                    Error = Error + "The price cannot be more than £500 : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The value entered is not money : ";
+            }
+
+            try
+            {
                 //copy the dateAdded value to the DateTemp variable 
                 DateTemp = Convert.ToDateTime(dateAdded);
                 if (DateTemp < DateTime.Now.Date)
@@ -215,43 +255,6 @@ namespace TrainersClasses
                 Error = Error + "The date entered is not a valid date : ";
             }
 
-            try
-            {
-                SizeTemp = Convert.ToInt32(size);
-                if (SizeTemp == 0)
-                {
-                    //record the error
-                    Error = Error + "The size cannot be blank : ";
-                }
-                if (SizeTemp > 12)
-                {
-                    //record the error
-                    Error = Error + "The size cannot be greater than 12 : ";
-                }
-            }
-            catch
-            {
-                //record the error
-                Error = Error + "The value entered is not a number : ";
-            }
-            try
-            {
-                PriceTemp = Convert.ToDecimal(price);
-                if (PriceTemp < 0.01M)
-                {
-                    //record the error
-                    Error = Error + "The price cannot be a negative or 0 : ";
-                }
-                if (PriceTemp > 500.00M)
-                {
-                    Error = Error + "The price cannot be more than £500 : ";
-                }
-            }
-            catch
-            {
-                //record the error
-                Error = Error + "The value entered is not money : ";
-            }
 
             //return any error message
             return Error;
@@ -261,8 +264,9 @@ namespace TrainersClasses
             get
             {
                 return Brand + " " + Name;
-                
+
             }
         }
+   
     }
 }
