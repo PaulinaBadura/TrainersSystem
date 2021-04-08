@@ -193,5 +193,31 @@ namespace Trainers_Testing
             //test to see ThisTrainer matches the test data
             Assert.AreEqual(AllTrainers.ThisTrainer, TestItem);
         }
+
+        [TestMethod]
+        public void ReportByBrandOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsTrainersCollection AllTrainers = new clsTrainersCollection();
+            //create the item of the filtered data
+            clsTrainersCollection FilteredTrainers = new clsTrainersCollection();
+            //apply a blank string returning all records
+            FilteredTrainers.ReportByBrand("");
+            //test to see the two values are the same
+            Assert.AreEqual(AllTrainers.Count, FilteredTrainers.Count);
+        }
+
+        [TestMethod]
+        public void ReportByBrandNoneFound()
+        {
+            //create the item of the filtered data
+            clsTrainersCollection FilteredTrainers = new clsTrainersCollection();
+            //apply a brand that doesn't exist
+            FilteredTrainers.ReportByBrand("xxxx");
+            //test to see there are no record 
+            Assert.AreEqual(0, FilteredTrainers.Count);
+        }
+
+        
     }
 }
